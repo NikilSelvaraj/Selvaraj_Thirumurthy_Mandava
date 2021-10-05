@@ -1,0 +1,46 @@
+/*
+ * All the Color Variables for ui elements will be defined in here 
+*/
+
+:root {
+ /* Background colors */
+--primary-bg:  #424242;
+--primary-bg-1: #212121;
+--primary-bg-2: #757575;
+--primary-bg-3: #9E9E9E;
+
+--secondary-bg: #03A9F4;
+--secondary-bg-1: #01579B;
+--secondary-bg-2: #40C4FF;
+--secondary-bg-3: #B3E5FC;
+
+ /* Label colors */
+
+--primary-label: #FAFAFA;
+--primary-label-1: #F5F5F5;
+--primary-label-2: #616161;
+
+--secondary-label: #E1F5FE;
+--secondary-label-1: #80D8FF;
+--secondary-label-2: #039BE5;
+
+ /* State colors */
+--state-danger: #C62828;
+--state-danger-1: #B71C1C;
+--state-danger-2: #EF5350;
+--state-danger-3: #F44336;
+--state-danger-light: #FFEBEE;
+
+--state-warning: #F9A825;
+--state-warning-1: #F57F17;
+--state-warning-2: #FDD835;
+--state-warning-3: #FFFF00;
+--state-warning-light: #FFFDE7;
+
+--state-success: #558B2F;
+--state-success-1: #33691E;
+--state-success-2: #8BC34A;
+--state-success-3: #B2FF59;
+--state-success-light: #F1F8E9;
+
+}
