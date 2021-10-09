@@ -9,12 +9,14 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Merienda&display=swap" rel="stylesheet">
         <!-- Add title and favicon -->
         <title>InstaWash</title>
         <link rel = "icon" href = "./assets/images/outline_local_laundry_service_white_24dp.png" type = "image/x-icon">
     </head>
-    <body>
+    <body class="d-flex flex-direction-column">
+      <!-- Header element conatining navigation bar and links -->
     <header class="d-flex justify-between nav-header">
         <div class="header-title d-flex">InstaWash</div>
         <nav class="navbar"> 
@@ -41,5 +43,32 @@
               </ul>
         </nav>
     </header>
+    <section>
+      <div class="poster d-flex justify-around">
+        <img src="./assets/images/laundry.png" height="400" width="400">
+        <div>
+        <p class="font-oswald text-header">Get your clothes washed and delivered in no time.</p>
+        <p class="text-description">No more wait times. No more hassle. Do your laundry at ease with Instawash.</br>
+           Your one-stop solution for getting your clothes washed, dried , ironed  and delivered at your doorstep.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Page footer -->
+    <footer class="w-100 d-flex flex-direction-column align-items-center">
+      <div class="social-media-links d-flex flex-direction-row justify-around">
+        <a href="#"><img src="./assets/images/instagram.png"></i></a>
+        <a href="#"><img src="./assets/images/facebook.png"></i></a>
+        <a href="#"><img src="./assets/images/twitter.png"></i></a>
+        <a href="#"><img src="./assets/images/yelp.png"></i></a>
+      </div>
+      <ul class="footer-links d-flex flex-direction-row justify-around">
+          <li class="footer-link-item"><a href="#">Home</a></li>
+          <li class="footer-link-item"><a href="#">Services</a></li>
+          <li class="footer-link-item"><a href="#">About</a></li>
+          <li class="footer-link-item"><a href="#">Terms</a></li>
+          <li class="footer-link-item"><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="copyright d-flex justify-center">InstaWash © 2021. All Rights Reserved.</p>
+    </footer>
     </body>
 </html>
