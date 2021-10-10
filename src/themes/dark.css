@@ -53,6 +53,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+.font-damion {
+  font-family: 'Damion', cursive;
+}
+
 .d-flex {
   display: flex;
 }
@@ -75,6 +79,9 @@
 
 .align-items-center {
   align-items: center;
+}
+.align-items-between {
+  align-items: space-between;
 }
 
 .flex-direction-row {
@@ -147,7 +154,7 @@ header.nav-header {
   font-size: 25px;
   font-weight: 400;
   color: var(--secondary-label-2);
-  font-family: "Merienda", cursive;
+  letter-spacing: 1px;
 }
 
 .search-control {
@@ -167,10 +174,10 @@ footer {
   background-color: var(--primary-bg-1);
   color: var(--primary-label-1);
   min-height: 120px;
-  position: fixed;
+  position: relative;
   bottom: 0px;
-  margin-top: 190px;
-  padding-bottom: 15px;
+  margin-top: 30px;
+  padding-bottom: 35px;
 }
 
 .footer-links {
