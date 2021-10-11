@@ -181,3 +181,7 @@ body{
   height: 25px;
   width: 70px;
 }
+
+.price-listing span{
+  font-size: 18px;
+}
