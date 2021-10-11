@@ -64,4 +64,5 @@ body {
   color: var(--secondary-bg-1) !important;
   cursor: pointer;
   font-size: 15px;
+  border-radius: 20px !important;
 }
