@@ -1,0 +1,59 @@
+.container {
+    display: grid;
+    /* grid-template-columns: auto; */
+  
+    background-color: var(--primary-bg-1);
+    width: auto;
+  }
+  .heading {
+    display: inline-grid;
+    text-align: center;
+    padding: 30px;
+    color: var(--primary-label-1);
+    font-size: 30px !important;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  .column {
+    width: 30%;
+    padding: 10px;
+    height: 100px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .flex-container {
+    margin : auto;
+    margin-top: 5%;
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    height: max-content;
+  }
+  .inner-flex-container {
+    display: flex;
+    flex-flow: column;
+    padding: 5px;
+    width: 32%;
+  }
+  .services-heading{
+    height: 120px;
+    padding: 5px;
+  }
+  .responsive {
+width: 80%;
+max-height: 200px;
+margin: 0px auto;
+  }
+  .services-text{
+    font-size: 1rem;
+    text-align: justify;
+  text-justify: inter-word;
+  padding: 5px;
+  }
