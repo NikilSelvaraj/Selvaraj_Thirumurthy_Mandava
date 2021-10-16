@@ -2,9 +2,10 @@
 <html>
 
 <head>
-  <!-- Import local css files -->
+  <!-- Import local css/js files -->
   <link href="./authentication.css" rel="stylesheet" type="text/css">
   <link href="../themes/dark.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="./authentication.js" ></script>
 
   <!-- import font packages -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,11 +58,11 @@
         <form class="d-flex flex-direction-column w-100"  method="post"
         enctype="text/html">
           <div class="d-flex flex-direction-column">
-            <input type="email" id="email" name="email" placeholder="Email">
+            <input type="email" id="email" name="email" placeholder="Username / Email">
             <input type="password" id="password" name="password" placeholder="Password">
           </div>
           <div class="d-flex flex-direction-column align-items-center">
-            <button class="btn login-btn" type="submit">Sign in</button>
+            <button class="btn login-btn" type="submit" onclick="login(email)">Sign in</button>
           </br>
           <p>Don't have an account yet? <span style="cursor: pointer; font-weight: 500; color: var(--primary-bg-1);" onclick="showSignUp();">Register</span> here</p>
           </div>
