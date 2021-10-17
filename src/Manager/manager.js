@@ -1,10 +1,11 @@
 var orders, equipment, pickupdelivery, customer, tasks;
 window.onload = function() {
-    if(localStorage.getItem("userType") == 'Manager') {
+    if(localStorage.getItem("userType") == 'manager') {
         document.getElementById('graph-view').style.display = 'none';
     } else {
         document.getElementById('heading-container').innerText = 'InstaWash Admin';
         document.getElementById('manager-actions').style.display = 'none';
+        document.getElementById('active-nav').innerText = 'Admin';
     }
     fetch("../../assets/staticData/ManageOrder.json")
     .then(response => {
