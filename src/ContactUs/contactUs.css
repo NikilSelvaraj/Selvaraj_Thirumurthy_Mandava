@@ -1,7 +1,8 @@
+/* First Name : Sujitraj ,
+Last Name: Thirumurthy,
+UTA ID : 1001830297 */
 .container {
   display: grid;
-  /* grid-template-columns: auto; */
-
   background-color: var(--primary-bg-1);
   width: auto;
 }
@@ -81,3 +82,7 @@ body {
   height: 100%;
   overflow-y: scroll;
 }
+
+/* @media only screen and (max-device-width: 480px){
+
+} */
