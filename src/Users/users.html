@@ -73,15 +73,15 @@
               <div class="form">
                 <form class="d-flex flex-direction-column w-100 align-items-center" action="#" method="post" enctype="text/plain">
                   <div class="d-flex flex-direction-column order-container">
-                    <div class="d-flex flex-direction-row justify-center">
+                    <div class="d-flex flex-direction-row justify-center media">
                       <input type="text" id="fname" placeholder="First Name" required>
                       <input type="text" id="lane" placeholder="Last Name" required>
                     </div>
-                    <div class="d-flex flex-direction-row justify-center">
+                    <div class="d-flex flex-direction-row justify-center media">
                       <input type="text" id="email" name="email" placeholder="Email" required>
                       <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
                     </div>
-                    <div class="d-flex flex-direction-row justify-center">
+                    <div class="d-flex flex-direction-row justify-center media">
                       <select name="service" id="service" class="font-roboto" required>
                           <option hidden selected>Select Required Service</option>
                           <option value="Washing">Washing</option>
@@ -91,10 +91,10 @@
                         </select>
                       <input type="number" id="noOfItems" name="Items" placeholder="Number of Items" required>   
                     </div>
-                    <div class="d-flex flex-direction-row justify-center">
+                    <div class="d-flex flex-direction-row justify-center media">
                       <textarea id="Instruction" class="font-roboto" name="Instruction" placeholder="Special Instruction"></textarea>
                     </div>
-                    <div class="d-flex w-100  flex-direction-row justify-center">
+                    <div class="d-flex w-100  flex-direction-row justify-center ">
                       <button class="btn clear" type="reset">Clear</button>
                       <button class="btn orderButton" type="submit">Place Order</button>
                     </div>
@@ -108,31 +108,28 @@
             <div class="form">
               <form class="d-flex flex-direction-column w-100 align-items-center" action="#" method="post" enctype="text/plain">
                 <div class="d-flex flex-direction-column subscribe-container">
-                  <div class="d-flex flex-direction-row justify-center">
-                  <p>Subscribe to InstaWash services and get your laundry done from the comfort of your home</p>
-                  </div>
-                  <div class="d-flex flex-direction-row justify-center">
+                  <div class="d-flex flex-direction-row justify-center media">
                     <input type="text" id="fname" name="fname" placeholder="First Name" required>
                     <input type="text" id="lname" name="lname" placeholder="Last Name" required>
                   </div>
-                  <div class="d-flex flex-direction-row justify-center">
+                  <div class="d-flex flex-direction-row justify-center media">
                     <input type="text" id="email" name="email" placeholder="Email" required>
                     <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
                   </div>
-                  <div class="d-flex flex-direction-row justify-center">
-                    <select name="subscribe" id="subscribe" class="font-roboto" required>
+                  <div class="d-flex flex-direction-row justify-center media">
+                    <select name="subscribe" id="subscribe" class="font-roboto subscribeSelect" required>
                       <option hidden selected>Services</option>
                       <option value="Pick Up">Pick Up</option>
                       <option value="Delivery">Delivery</option>
                       <option value="PickUp&Delivery">Pick Up & Delivery</option>
                     </select>
-                    <select name="plan" id="plan" class="font-roboto">
+                    <select name="plan" id="plan" class="font-roboto subscribeSelect">
                       <option hidden selected>Subscription Type</option>
                       <option value="1">Weekly Once</option>
                       <option value="2">Once every two weeks</option>
                       <option value="3">Montly</option>
                     </select>
-                    <select name="day" id="day" class="font-roboto">
+                    <select name="day" id="day" class="font-roboto subscribeSelect">
                       <option hidden selected>Select Prefered Day</option>
                       <option value="Sunday">Sunday</option>
                       <option value="Monday">Monday</option>
@@ -143,12 +140,12 @@
                       <option value="Saturday">Saturday</option>
                     </select>
                   </div>
-                  <div class="d-flex flex-direction-row justify-center">
+                  <div class="d-flex flex-direction-row justify-center media">
                     <input type="text" id="address" name="address" placeholder="Address" required>
                     <input type="text" id="city" name="city" placeholder="City" required>
                     <input type="text" id="State" name="State" placeholder="State" required>
                   </div>
-                  <div class="d-flex w-100 flexdirection-row justify-center">
+                  <div class="d-flex w-100 flexdirection-row justify-center subscribeButton">
                     <button class="btn clear" type="reset">Clear</button>
                     <button class="btn subscribe" type="submit">Subscribe</button>
                   </div>
@@ -162,39 +159,36 @@
           <div class="form">
             <form class="d-flex flex-direction-column w-100 align-items-center" action="#" method="post" enctype="text/plain">
               <div class="d-flex flex-direction-column register-container">
-                <div class="d-flex flex-direction-row justify-center">
-                  <p>Register an Incident or a Request. Our Employee will contact you within 24 hours</p>
-                </div>
-              <div class="d-flex flex-direction-row justify-center">
+              <div class="d-flex flex-direction-row justify-center media">
                 <input type="text" id="fname" name="fname" placeholder="First Name" required>
                 <input type="text" id="lname" name="lname" placeholder="Last Name" required>
               </div>
-              <div class="d-flex flexdirection-row justify-center">
+              <div class="d-flex flexdirection-row justify-center media">
                 <input type="text" id="email" name="email" placeholder="Email" required>
                 <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
               </div>
-              <div class="d-flex flexdirection-row justify-center">
-                <select name="register" id="register" class="font-roboto" required>
+              <div class="d-flex flexdirection-row justify-center media">
+                <select name="register" id="register" class="font-roboto registerSelect" required>
                   <option hidden selected>Select one...</option>
                   <option value="Incident">Register an Incident</option>
                   <option value="Request">Register a Request</option>
                 </select>
               </div>
-              <div class="d-flex flexdirection-row justify-center">
-                <textarea id="query" class="font-roboto" name="query" placeholder="Enter your query"></textarea>
+              <div class="d-flex flexdirection-row justify-center media ">
+                <textarea id="query" class="font-roboto registerTextArea" name="query" placeholder="Enter your query"></textarea>
               </div>
-            </div>
-              <div class="d-flex w-100 flexdirection-row justify-center">
+              <div class="d-flex w-100 flexdirection-row justify-center   ">
                 <button class="btn clear" type="reset">Clear</button>
                 <button class="btn submit" type="submit">Submit</button>
               </div>
+            </div>
             </form>
           </div>
         </div>
              <!--User Dashboard Section to chat with management-->
           <div id="chats" class="info-content d-none">
             <div class="font-oswald d-flex flex-direction-row w-100 justify-center sideNavHeader">Chat</div>
-            <div class="d-flex flex-direction-column" style="height: 500px;">
+            <div class="d-flex flex-direction-column chat-container" style="height: 500px;">
             <div id = "display_message" class="display_message"></div>
             <form class="d-flex flex-direction-column w-100 chat-area">
               <div class="d-flex flex-direction-row chatBox">
