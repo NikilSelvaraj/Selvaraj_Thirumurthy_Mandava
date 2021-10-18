@@ -1,10 +1,17 @@
+/* First Name: Nikil Nandha
+Last Name: Selvaraj
+UTA ID: 1002004184 */
+
 body {
-      /* use the font */
-        font-family: 'Roboto', sans-serif;
-        background-color: var(--primary-bg);
-        color: var(--primary-label);
-        margin: 0;
-        background-attachment: fixed;
+  /* use the font */
+  font-family: "Roboto", sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--primary-label);
+  margin: 0;
+  background-attachment: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100vh;
 }
 
 .poster {
@@ -13,6 +20,7 @@ body {
   color: var(--primary-label-2);
 }
 
+/* carousel slideshow styles */
 .carousel-container {
   margin-top: 30px;
 }
@@ -31,7 +39,7 @@ body {
   overflow: hidden;
 }
 
-.carousel::before{
+.carousel::before {
   margin: -20px;
   border-radius: 7px;
   content: "";
@@ -46,16 +54,14 @@ body {
   z-index: -1;
 }
 
-body{
- overflow-y: scroll;
- overflow-x: hidden;
- height: 100vh;
-}
+/* section-break styles */
 
 .page-break {
   margin: 0px 30px;
   border-color: var(--primary-bg-2);
 }
+
+/* info section styles */
 
 .info-link {
   min-height: 300px;
@@ -96,28 +102,8 @@ body{
   display: none;
 }
 
+/* The pills indicators */
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(255,255,255,0.8);
-}
-
-/* The dots/bullets/indicators */
 .pill-container {
   text-align: center;
   position: relative;
@@ -133,14 +119,19 @@ body{
   transition: background-color 0.6s ease;
 }
 
-.pills.active, .pills:hover {
+.pills.active,
+.pills:hover {
   background-color: var(--color-light);
 }
+
+/* carousel offer section styles */
 
 .offer-info {
   font-size: 60px !important;
   margin: 10px 0px;
 }
+
+/* carousel customer review section styles */
 
 .review-content div:first-child {
   font-size: 30px;
@@ -151,7 +142,7 @@ body{
 .customer-review {
   margin-top: 50px;
 }
-.customer-review span{
+.customer-review span {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -164,6 +155,7 @@ body{
   width: 70px;
 }
 
-.price-listing span{
+/* carousel price listing section styles */
+.price-listing span {
   font-size: 18px;
 }

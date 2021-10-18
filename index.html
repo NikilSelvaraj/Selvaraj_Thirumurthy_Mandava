@@ -14,14 +14,14 @@
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
     rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
   <!-- Add title and favicon -->
   <title>InstaWash</title>
   <link rel="icon" href="./assets/images/outline_local_laundry_service_white_24dp.png" type="image/x-icon">
 </head>
 
 <body class="d-flex flex-direction-column">
-  <!-- Header element conatining navigation bar and links -->
+  <!-- navigation bar and links -->
   <header class="d-flex justify-between nav-header">
     <div class="header-title d-flex"><a class="logo font-oswald" href="./index.html">InstaWash</a></div>
     <nav class="navbar">
@@ -49,6 +49,7 @@
     </nav>
   </header>
   <section>
+    <!-- header seaction describing Instawash -->
     <div class="poster d-flex justify-around">
       <img src="./assets/images/laundry.png" height="400" width="400">
       <div class="d-flex flex-direction-column justify-center">
@@ -57,6 +58,8 @@
           Your one-stop solution for getting your clothes washed, dried , ironed and delivered at your doorstep.</p>
       </div>
     </div>
+
+    <!-- Info section below header -->
     <div class="d-flex flex-direction-row justify-around info-link">
       <p>
         <span class="font-oswald text-header"> We Wash, Dry and Iron your clothes</span></br></br>
@@ -82,72 +85,77 @@
     <hr class="page-break">
 
     <!-- carousel content -->
-  <div class="carousel-container d-flex flex-direction-column align-items-center">
-    <div class="slides fade w-100">
-      <div class="carousel d-flex align-items-center justify-around">
-        <span><p class="text-header font-damion offer-info">Flat 20% off</p> <span class="font-oswald"> first time customers only. Terms & Condtions apply.</span></span>
-        <img src="./assets/images/special-offer.png" height="280px" width="280px">
-      </div>
-    </div>
-
-    <div class="slides fade w-100">
-      <div class="carousel review-content d-flex justify-around">
-        <div class="font-oswald d-flex flex-direction-column justify-center">Pricing</div>
-        <div class="font-oswald d-flex flex-direction-column justify-evenly price-listing font-roboto">
-          <span>Washing: &ensp; 2$ per pound</span>
-          <span>Drying:  &ensp; 2$ per pound</span>
-          <span>Ironing: &ensp; 4$ per pound</span>
-        </div>
-        <div class="font-oswald d-flex flex-direction-column justify-evenly font-roboto">
-          <span>Pickup: &ensp; 1.75$</span>
-          <span>Delivery: &ensp; 1.75$</span>
-          <span>Late Services: &ensp; 15% additional cost</span>
+    <div class="carousel-container d-flex flex-direction-column align-items-center">
+      <div class="slides fade w-100">
+        <div class="carousel d-flex align-items-center justify-around">
+          <span>
+            <p class="text-header font-damion offer-info">Flat 20% off</p> <span class="font-oswald"> first time
+              customers only. Terms & Condtions apply.</span>
+          </span>
+          <img src="./assets/images/special-offer.png" height="280px" width="280px">
         </div>
       </div>
-    </div>
 
-    <div class="slides fade w-100">
-      <div class="carousel review-content d-flex flex-direction-column">
-        <div class="font-oswald d-flex justify-center">Customer Reviews</div>
-      <div class="customer-review d-flex w-100"><span>Jacob<img src="./assets/images/4stars.png"></span> <span>Alan<img src="./assets/images/5stars.png"></span></div>
-      <div class="customer-review d-flex w-100"><span>Maria<img src="./assets/images/4andhalfstars.png"></span> <span>Diaz<img src="./assets/images/3andhalfstars.png"></span></div>
+      <div class="slides fade w-100">
+        <div class="carousel review-content d-flex justify-around">
+          <div class="font-oswald d-flex flex-direction-column justify-center">Pricing</div>
+          <div class="font-oswald d-flex flex-direction-column justify-evenly price-listing font-roboto">
+            <span>Washing: &ensp; 2$ per pound</span>
+            <span>Drying: &ensp; 2$ per pound</span>
+            <span>Ironing: &ensp; 4$ per pound</span>
+          </div>
+          <div class="font-oswald d-flex flex-direction-column justify-evenly font-roboto">
+            <span>Pickup: &ensp; 1.75$</span>
+            <span>Delivery: &ensp; 1.75$</span>
+            <span>Late Services: &ensp; 15% additional cost</span>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- The pills -->
-    <div class="pill-container">
-      <span class="pills" onclick="currentSlide(1)"></span>
-      <span class="pills" onclick="currentSlide(2)"></span>
-      <span class="pills" onclick="currentSlide(3)"></span>
-    </div>
-    <script>
-      var slideIndex = 1;
-      showSlides(slideIndex);
+      <div class="slides fade w-100">
+        <div class="carousel review-content d-flex flex-direction-column">
+          <div class="font-oswald d-flex justify-center">Customer Reviews</div>
+          <div class="customer-review d-flex w-100"><span>Jacob<img src="./assets/images/4stars.png"></span>
+            <span>Alan<img src="./assets/images/5stars.png"></span></div>
+          <div class="customer-review d-flex w-100"><span>Maria<img src="./assets/images/4andhalfstars.png"></span>
+            <span>Diaz<img src="./assets/images/3andhalfstars.png"></span></div>
+        </div>
+      </div>
 
-      // Thumbnail image controls
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
+      <!-- The pills -->
+      <div class="pill-container">
+        <span class="pills" onclick="currentSlide(1)"></span>
+        <span class="pills" onclick="currentSlide(2)"></span>
+        <span class="pills" onclick="currentSlide(3)"></span>
+      </div>
+      <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
 
-      function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("slides");
-        var pills = document.getElementsByClassName("pills");
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
+        // Thumbnail image controls
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
         }
-        for (i = 0; i < pills.length; i++) {
-          pills[i].className = pills[i].className.replace(" active", "");
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("slides");
+          var pills = document.getElementsByClassName("pills");
+          if (n > slides.length) { slideIndex = 1 }
+          if (n < 1) { slideIndex = slides.length }
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < pills.length; i++) {
+            pills[i].className = pills[i].className.replace(" active", "");
+          }
+          slides[slideIndex - 1].style.display = "flex";
+          pills[slideIndex - 1].className += " active";
         }
-        slides[slideIndex - 1].style.display = "flex";
-        pills[slideIndex - 1].className += " active";
-      }
-    </script>
+      </script>
     </div>
   </section>
-  <!-- Page footer -->
+  <!-- footer containing links and copyright information -->
   <footer class="w-100 d-flex flex-direction-column align-items-center">
     <div class="social-media-links d-flex flex-direction-row justify-around">
       <a href="#"><img src="./assets/images/instagram.png"></i></a>

@@ -1,3 +1,7 @@
+/* First Name: Nikil Nandha
+Last Name: Selvaraj
+UTA ID: 1002004184 */
+
 body {
     /* use the font */
       font-family: 'Roboto', sans-serif;
@@ -6,6 +10,7 @@ body {
       background-attachment: fixed;
 }
 
+ /* manager and admin page container styles */
 .container {
     display: flex;
     justify-content: center;
@@ -42,6 +47,8 @@ body {
     padding: 40px 0px 40px 40px;
 }
 
+
+ /* Table styles */
 .material-table {
     min-height:400px;
     box-shadow: 0px 0px 3px 3px rgba(156, 156, 156, 0.2);
@@ -113,12 +120,15 @@ body {
  border: 1px solid var(--primary-bg-3);
 }
 
+ /* styles for edit delete and add actions in table */
 .action-icons img{
     height: 25px;
     width: 25px;
     cursor: pointer;
 }
 
+
+/* Manual order section styles */
 .order-container {
     padding: 20px 20px 20px 0px;
 }
@@ -154,6 +164,9 @@ body {
     border-radius: 17px;
     height: 35px !important;
 }
+
+
+/* Admin page graph and stats section styles */
 
 .graph-view{
     height: 600px;
