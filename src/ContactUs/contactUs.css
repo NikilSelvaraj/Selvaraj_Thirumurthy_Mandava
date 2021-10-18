@@ -83,6 +83,27 @@ body {
   overflow-y: scroll;
 }
 
-/* @media only screen and (max-device-width: 480px){
 
-} */
+/* media query for contact us page for device width less than 480px  */
+@media only screen and (max-device-width: 480px){
+  .mediaPhone{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  .formContainer .field-container {
+    transform: scale(1.5);
+    margin-top: 100px;
+  }
+  textarea {
+    width: 100% !important;
+  }
+  .buttons{
+    margin-left: 50px !important;
+    justify-content: center;
+  }
+  .container{
+    width: 102%;
+  }
+
+}

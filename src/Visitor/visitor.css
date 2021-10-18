@@ -100,7 +100,7 @@ UTA ID : 1001830297 */
     
     .submit,
     .clear {
-      width: 10%;
+      width: 15% !important;
       border-radius: 12px;
       margin-top: 15px;
       cursor: pointer;
@@ -161,3 +161,75 @@ UTA ID : 1001830297 */
       border-radius: 4px;
       box-sizing: border-box;
     }
+    /* media query for visitor page for device width less than 480px  */
+    @media only screen and (max-device-width: 480px){
+      .container{
+        width: 102%;
+        height: 150px !important;
+      }
+      .media{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+      }
+      .schedule-container{
+        width: 60%;
+        transform: scale(1.45);
+      }
+      .schedule {
+      font-size: 20px !important;
+      font-weight: 300 !important;
+      justify-content: center;
+    }
+    .register-container {
+      width: 50%;
+      transform: scale(1.7);
+      margin-top: 200px;
+    }
+    .registerSelect{
+      width: 92%
+    };
+    .registerTextArea{
+      width: 90% !important;
+    }
+    .heading {
+      font-size: 45px !important;
+      margin-left: 100px;
+    }
+    .sideNavHeader {
+      font-size: 40px !important;
+    }
+    .sideNav {
+      width: 400px !important;
+      font-size: 28px !important;
+    }
+    .submit,
+    .clear {
+      width: 25% !important;
+    }
+    .info-content .chat-container {
+      height: calc(100vh - 100px)  !important;
+    }
+    .display_message {
+      max-height: 80%;
+    }
+    .display_message p{
+      font-size: 35px;
+      border-radius: 20px;
+    }
+    .display_message textarea {
+      width: 90% !important;
+    }
+    .chatBox {
+      width: 75%;
+      transform: scale(1.5);
+    }
+    .clear:hover {
+      border-color: var(--state-danger);
+      color: var(--state-danger);
+  }
+    .submit:hover {
+      border-color: var(--state-success);
+      color:var(--state-success);
+  }
+  }
