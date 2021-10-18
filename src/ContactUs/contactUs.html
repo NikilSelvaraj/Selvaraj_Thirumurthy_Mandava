@@ -44,6 +44,30 @@
       </ul>
     </nav>
   </header>
+  <!-- side menu navigation for responsiveness -->
+  <header class="d-flex justify-between menu-header" style="display: none;">
+    <div class="header-title d-flex justify-between"><img class="logo font-oswald cursor-pointer" src="../../assets/images/hmaburger-menu.png" height="45px" width="45px" onclick="showSideNav()"> 
+      <div class="header-title d-flex"><a class="logo font-oswald" href="../../index.html">InstaWash</a></div></div>
+    <div class="side-bar-navigation fade" id="side-bar-navigation">
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a>About</a></li>
+        <li><a href="../Services/services.html">Services</a></li>
+        <li><a href="./contactUs.html">Contact Us</a></li>
+        <li><a href="../authentication/authentication.html">Login / Register</a></li>
+      </ul>
+    </div>
+    <script>
+      function showSideNav() {
+        let displayValue = document.getElementById('side-bar-navigation').style.display;
+        
+        if(displayValue == 'none' || displayValue == '')
+         { document.getElementById('side-bar-navigation').style.display = 'flex'; } else {
+            document.getElementById('side-bar-navigation').style.display = 'none'; }
+      }
+    </script>
+  </header>
+
   <div class="container">
     <div class="font-oswald heading"> Contact Us </div>
   </div>

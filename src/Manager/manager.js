@@ -9,6 +9,7 @@ window.onload = function () {
         document.getElementById('heading-container').innerText = 'InstaWash Admin';
         document.getElementById('manager-actions').style.display = 'none';
         document.getElementById('active-nav').innerText = 'Admin';
+        document.getElementById('side-active-nav').innerText = 'Admin';
         document.getElementById('employee-table-container').style.display = 'none';
     }
 

@@ -393,6 +393,7 @@ body {
   .menu-header {
     display: flex !important;
     height: 90px;
+    background-color: var(--primary-bg);
   }
 
   .menu-header img {
@@ -402,5 +403,6 @@ body {
   .header-title {
     justify-content: flex-end;
     padding-right: 50px;
+    font-size: 40px;
   }
 }
