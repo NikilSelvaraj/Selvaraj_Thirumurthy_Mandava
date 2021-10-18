@@ -358,3 +358,55 @@ body {
 .user-dashboard-container {
   height: calc(100vh - 195px);
 }
+
+.side-bar-navigation {
+  flex-direction: column;
+  height: calc(100vh - 50px);
+  position: absolute;
+  width: 500px;
+  background-color: var(--color-light);
+  box-shadow: 0px 0px 3px 2px var(--primary-label-1);
+  display: none;
+  z-index: 2000000;
+  top: 90px;
+}
+
+.side-bar-navigation ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.side-bar-navigation li {
+  font-size: 43px;
+  padding: 20px;
+  color: var(--primary-bg) !important;
+  font-family: 'Roboto', 'sans-seriff';
+  font-weight: 300;
+}
+
+.side-bar-navigation a {
+  color: var(--primary-bg) !important;
+}
+
+
+/* responsive css for all pages */
+@media only screen and (max-device-width: 480px){ 
+  .nav-header {
+    display: none;
+  }
+
+  .menu-header {
+    display: flex !important;
+    height: 90px;
+  }
+
+  .menu-header img {
+    padding: 10px;
+  }
+
+  .header-title {
+    justify-content: flex-end;
+    padding-right: 50px;
+  }
+}
