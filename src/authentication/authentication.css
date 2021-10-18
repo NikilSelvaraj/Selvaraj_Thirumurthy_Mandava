@@ -80,3 +80,40 @@ login and register button styles */
   font-size: 15px;
   border-radius: 20px !important;
 }
+
+/* responsive css for login and registration page */
+@media only screen and (max-device-width: 480px){
+  .login-section{
+    justify-content: center !important;
+    flex-direction: column  !important;
+    height: 1400px;
+  }
+
+  .login-section div.image-container{
+    display: none;
+  }
+
+  .login-container {
+    transform: scale(2.0);
+  }
+
+
+
+  .registration-section{
+    justify-content: center !important;
+    flex-direction: column  !important;
+    height: 1500px;
+  }
+
+  .registration-section div.image-container{
+    display: none;
+  }
+
+  .registration-container {
+    transform: scale(2.0);
+  }
+
+  body {
+    overflow-x: hidden;
+}
+}

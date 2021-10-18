@@ -159,3 +159,31 @@ body {
 .price-listing span {
   font-size: 18px;
 }
+
+
+/* responsive css for home page */
+@media only screen and (max-device-width: 480px){
+  .about-description, .text-description {
+    display: none;
+  }
+
+  .poster {
+    padding-right: 80px;
+  }
+
+  .text-header {
+    font-size: 45px !important;
+  }
+
+  .services-link {
+    font-size: 28px  !important;
+  }
+
+  .carousel span {
+    transform: scale(1.4);
+  }
+
+  body {
+    overflow-x: hidden;
+}
+}
