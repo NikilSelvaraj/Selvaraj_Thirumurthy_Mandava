@@ -43,7 +43,7 @@ body {
   border-bottom: 1px solid var(--primary-label-1) !important;
 }
 
-.login-container,.registration-container input:focus-visible {
+.login-container input:focus-visible,.registration-container input:focus-visible {
   outline: none;
 }
 
