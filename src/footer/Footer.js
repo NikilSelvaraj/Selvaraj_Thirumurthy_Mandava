@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './Footer.css';
-import instagram from '../public/images/instagram.png'
-import facebook from '../public/images/facebook.png'
-import twitter from '../public/images/twitter.png'
-import yelp from '../public/images/yelp.png'
+import instagram from '../assets/images/instagram.png'
+import facebook from '../assets/images/facebook.png'
+import twitter from '../assets/images/twitter.png'
+import yelp from '../assets/images/yelp.png'
 // import Home from './Home';
 function Footer() {
 return(

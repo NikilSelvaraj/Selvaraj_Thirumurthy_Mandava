@@ -1,5 +1,5 @@
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
-import hamBurger from '../public/images/hmaburger-menu.png'
+import hamBurger from '../assets/images/hmaburger-menu.png'
 import './Header.css';
 import Home from '../home/Home';
 import React from 'react';
@@ -49,11 +49,11 @@ function Header() {
     </div>
   </header>
   <Switch>
-      <Route path='/'></Route>
-      <Route path='/'></Route>
-      <Route path='/'></Route>
-      <Route path='/'></Route>
       <Route path='/'><Home/></Route>
+      <Route path='/about'></Route>
+      <Route path='/services'></Route>
+      <Route path='/contact'></Route>
+      <Route path='/authentication'></Route>
   </Switch>
   </Router>
   );
