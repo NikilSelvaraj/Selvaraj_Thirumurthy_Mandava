@@ -1,0 +1,74 @@
+input[type="text"],
+input[type="number"],
+input [type="email"] {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 15px;
+  resize: vertical;
+}
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 15px;
+  resize: vertical;
+}
+textarea {
+  width: 100% !important;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 100px;
+  margin: 15px;
+}
+
+.submit,
+.clear {
+  width: 10%;
+  border-radius: 12px;
+  margin-top: 15px;
+  cursor: pointer;
+  margin-right: 20px;
+  background-color: inherit;
+}
+.subscribe {
+  width: 14%;
+  border-radius: 12px;
+  margin-top: 15px;
+  cursor: pointer;
+  margin-right: 20px;
+  background-color: inherit;
+}
+
+.clear:hover {
+  border-color: var(--state-danger);
+  color: var(--state-danger);
+}
+
+.submit:hover {
+  border-color: var(--state-success);
+  color: var(--state-success);
+}
+.subscribe:hover {
+  border-color: var(--state-success);
+  color: var(--state-success);
+}
+.orderButton {
+  width: 25%;
+  border-radius: 12px;
+  margin-top: 15px;
+  cursor: pointer;
+  margin-right: 20px;
+  background-color: inherit;
+  color: var(--secondary-bg-1);
+}
+.orderButton:hover {
+  border-color: var(--state-success);
+  color: var(--state-success);
+}

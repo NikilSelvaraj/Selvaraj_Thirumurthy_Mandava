@@ -3,6 +3,9 @@ import hamBurger from '../assets/images/hmaburger-menu.png'
 import './Header.css';
 import Home from '../home/Home';
 import React from 'react';
+import ContactUs from  '../contactus/contactUs'
+import About from '../about/about';
+import Service from '../services/service';
 function Header() {
   return (
     <Router>
@@ -21,7 +24,7 @@ function Header() {
           <Link className="nav-Link" to="/services">Services</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-Link" to="./contactus">Contact</Link>
+          <Link className="nav-Link" to="/contactus">Contact</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-Link" to="/authentication">Login/Register</Link>
@@ -43,17 +46,17 @@ function Header() {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/services">Services</Link></li>
-        <li><Link to="/contact">Contact Us</Link></li>
+        <li><Link to="/contactus">Contact Us</Link></li>
         <li><Link to="/authentication">Login / Register</Link></li>
       </ul>
     </div>
   </header>
   <Switch>
-      <Route path='/'><Home/></Route>
-      <Route path='/about'></Route>
-      <Route path='/services'></Route>
-      <Route path='/contact'></Route>
-      <Route path='/authentication'></Route>
+      <Route exact path='/'><Home/></Route> 
+      <Route exact path='/about'><About/></Route>
+      <Route exact path='/services'><Service/></Route>
+      <Route exact path='/contactus' component={ContactUs}></Route>
+      <Route exact path='/authentication'></Route>
   </Switch>
   </Router>
   );
