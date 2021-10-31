@@ -3,6 +3,10 @@ import hamBurger from '../assets/images/hmaburger-menu.png'
 import './Header.css';
 import Home from '../home/Home';
 import React from 'react';
+import Authentication from '../authentication/authentication';
+import Registration from '../authentication/registration/registration';
+import Admin from '../administration/admin/admin';
+import Manager from '../administration/manager/manager';
 import ContactUs from  '../contactus/contactUs'
 import About from '../about/about';
 import Service from '../services/service';
@@ -56,16 +60,19 @@ function Header() {
       <Route exact path='/about'><About/></Route>
       <Route exact path='/services'><Service/></Route>
       <Route exact path='/contactus' component={ContactUs}></Route>
-      <Route exact path='/authentication'></Route>
+      <Route exact path='/authentication'><Authentication/></Route>
+      <Route exact path='/registration'><Registration/></Route>
+      <Route exact path='/admin'><Admin/></Route>
+      <Route exact path='/manager'><Manager/></Route>
   </Switch>
   </Router>
   );
 
   function showSideNav() {
     let displayValue = document.getElementById('side-bar-navigation').style.display;
-    if(displayValue === 'none' || displayValue === '')
-     { document.getElementById('side-bar-navigation').style.display = 'flex'; } else {
-        document.getElementById('side-bar-navigation').style.display = 'none'; }
+    if (displayValue === 'none' || displayValue === '') { document.getElementById('side-bar-navigation').style.display = 'flex'; } else {
+      document.getElementById('side-bar-navigation').style.display = 'none';
+    }
   }
 }
 
