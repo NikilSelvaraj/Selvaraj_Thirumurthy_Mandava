@@ -1,7 +1,5 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
-import Admin from "../../administration/admin/admin";
-import Manager from "../../administration/manager/manager";
 import login from '../../assets/images/login.png'
 import Registration from "../registration/registration";
 function Login() {
@@ -44,12 +42,12 @@ function Login() {
         event.preventDefault();
         var emailValue = document.getElementById('email').value;
         if (emailValue) {
-            if (emailValue == 'admin@instawash.com') {
+            if (emailValue === 'admin@instawash.com') {
                  window.location = '/admin'
             }
-            else if (emailValue == 'manager@instawash.com') {
+            else if (emailValue === 'manager@instawash.com') {
                  window.location = '/manager'
-            } else if (emailValue == 'user@instawash.com') {
+            } else if (emailValue === 'user@instawash.com') {
                 window.location = '/user'
             } else {
                 window.location = '/visitor'

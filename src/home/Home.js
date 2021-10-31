@@ -1,5 +1,5 @@
 import React from "react";
-// import Carousel from "../carousel/carousel";
+import Carousel from "../carousel/carousel";
 import HeaderDescription from "../description/description";
 import HeaderInfo from "../info/info";
 import './Home.css'
@@ -9,7 +9,7 @@ function Home() {
     <section>
       <HeaderDescription />
       <HeaderInfo/>
-      {/* <Carousel/> */}
+      <Carousel/>
       <Footer/>
     </section>
   );
