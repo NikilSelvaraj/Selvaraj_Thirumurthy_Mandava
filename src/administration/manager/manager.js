@@ -13,10 +13,11 @@ function Manager () {
         document.getElementsByClassName('nav-item active')[0].classList.remove('active');
         document.getElementById('authenticationTab').classList.add('active');
         document.getElementById('authenticationTab').childNodes[0].innerText = 'Manager';
-    });
-    setTimeout(()=> {
         populateTables();
-    },500);
+        return() => {
+            document.getElementById('authenticationTab').childNodes[0].innerText = 'Login/Register';  
+        }
+    });
     return (
         <section className='administration-bg'>
          {/* Header section title */}

@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
 import hamBurger from '../assets/images/hmaburger-menu.png'
 import './Header.css';
 import Home from '../home/Home';
-import React, {useEffect} from 'react';
+import React from 'react';
 import Authentication from '../authentication/authentication';
 import Registration from '../authentication/registration/registration';
 import Admin from '../administration/admin/admin';

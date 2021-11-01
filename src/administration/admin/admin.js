@@ -16,12 +16,12 @@ function Admin () {
         document.getElementsByClassName('nav-item active')[0].classList.remove('active');
         document.getElementById('authenticationTab').classList.add('active');
         document.getElementById('authenticationTab').childNodes[0].innerText = 'Admin';
-    });
-    setTimeout(()=> {
         populateTables();
         showSlides(slideIndex);
-    },500);
-
+        return() => {
+            document.getElementById('authenticationTab').childNodes[0].innerText = 'Login/Register';  
+        }
+    });
      // Thumbnail image controls
      function currentSlide(n) {
         showSlides(slideIndex = n);

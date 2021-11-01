@@ -1,4 +1,4 @@
-import {React} from "react";
+import React, {useEffect} from "react";
 import specialOffer from '../assets/images/special-offer.png'
 import fivestars from '../assets/images/5stars.png'
 import fourstars from '../assets/images/4stars.png'
@@ -7,9 +7,9 @@ import threeandhalfstars from '../assets/images/3andhalfstars.png'
 
 function Carousel() {
   var slideIndex = 1;
-  setTimeout(() => {
+  useEffect(() => {
     showSlides(slideIndex)
-  },1000);
+  });
 //   Thumbnail image controls
 function currentSlide(n) {
   debugger
