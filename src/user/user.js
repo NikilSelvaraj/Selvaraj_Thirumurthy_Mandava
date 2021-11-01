@@ -5,6 +5,9 @@ function User () {
         document.getElementsByClassName('nav-item active')[0].classList.remove('active');
         document.getElementById('authenticationTab').classList.add('active');
         document.getElementById('authenticationTab').childNodes[0].innerText = 'User';
+        return () => {
+            document.getElementById('authenticationTab').childNodes[0].innerText = 'Login/Register'; 
+        }
     });
     return(
         <UserSideMenu/>

@@ -15,7 +15,7 @@ function Visitorsidemenu() {
                 <div className="sideNav">
                     <ul className="d-fle flex-direction-column space-between">
                         <li className="sideNavItem " id="order">
-                            <Link className="sideNav-link" name="ScheduleDrop" to="/ScheduleDrop">Schedule a Drop</Link>
+                            <Link className="sideNav-link" name="ScheduleDrop" to="/visitor">Schedule a Drop</Link>
                         </li>
                         <li className="sideNavItem" id="register" >
                             <Link className="sideNav-link" name="registerIncident" to="/Register">Register an Incident</Link>
@@ -27,7 +27,7 @@ function Visitorsidemenu() {
                 </div>
                 <section className='d-flex w-100 justify-center'>
             <Switch>
-                <Route exact path='/ScheduleDrop'><ScheduleDrop/></Route>
+                <Route exact path='/visitor'><ScheduleDrop/></Route>
                 <Route exact path='/Register'><RegisterIncident/></Route>
                 <Route exact path='/Chat'><Chat/></Route>
             </Switch>

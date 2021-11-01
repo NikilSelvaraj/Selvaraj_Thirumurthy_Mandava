@@ -16,7 +16,7 @@ function SideMenuBar () {
                 <div className="sideNav">
                     <ul className="d-fle flex-direction-column space-between">
                         <li className="sideNavItem " id="order">
-                            <Link className="sideNav-link" name="place-order" to="/PlaceOrder">Place Order</Link>
+                            <Link className="sideNav-link" name="place-order" to="/user">Place Order</Link>
                         </li>
                         <li className="sideNavItem" id="subscribe" >
                             <Link className="sideNav-link" name="subscribeService" to="/Subscribe">Subscribe to Service</Link>
@@ -31,7 +31,7 @@ function SideMenuBar () {
                 </div>
                 <section className='d-flex w-100 justify-center'>
             <Switch>
-                <Route exact path='/PlaceOrder'><PlaceOrder/></Route>
+                <Route exact path='/user'><PlaceOrder/></Route>
                 <Route exact path='/Subscribe'><SubscribeService/></Route>
                 <Route exact path='/Register'><RegisterIncident/></Route>
                 <Route exact path='/Chat'><Chat/></Route>
