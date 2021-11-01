@@ -19,7 +19,7 @@ function About() {
             <div>
                 <h1 className="side-Heading">About InstaWash</h1>
                 <div className="about-content">
-                    <p>
+                    <p style={{fontSize:'24px'}}>
                         Insta Wash is a start up Laudry Management Company with two branches one in Arlington, Texas and one in Dallas, Texas.
                         We are planning to expand our business to other states in the US.
                         <p>

@@ -437,3 +437,7 @@ body {
     right: 2%;
   }
 }
+
+.flex-container {
+  color: var(--color-light);
+}
