@@ -6,7 +6,7 @@ import './Home.css'
 import Footer from "../footer/Footer";
 function Home() {
   return (
-    <section>
+    <section className='info-section-container '>
       <HeaderDescription />
       <HeaderInfo/>
       <Carousel/>

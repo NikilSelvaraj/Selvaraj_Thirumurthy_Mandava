@@ -18,7 +18,7 @@ function Login() {
                             <form className="d-flex flex-direction-column w-100" onSubmit={signIn}>
                                 <div className="d-flex flex-direction-column">
                                     <input type="email" id="email" name="email" placeholder="Username / Email"
-                                        pattern=".+@instawash\.com" size="30" required />
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="30" required />
                                     <input type="password" id="password" name="password" placeholder="Password"
                                         minLength="8" required />
                                 </div>

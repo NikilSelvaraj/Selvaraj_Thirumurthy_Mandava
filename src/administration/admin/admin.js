@@ -62,7 +62,7 @@ function Admin () {
                     <span className="font-roboto">45</span>
                 </div>
             </div>
-            <div className="carousel-container d-flex flex-direction-column align-items-center">
+            <div className="carousel-container admin-container d-flex flex-direction-column align-items-center">
                 <div className="slides fade w-100">
                     <img src={customerGraph} alt='add-record'/>
                 </div>

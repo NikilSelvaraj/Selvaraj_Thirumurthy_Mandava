@@ -11,6 +11,12 @@ import ContactUs from  '../contactus/contactUs'
 import About from '../about/about';
 import Service from '../services/service';
 function Header() {
+  setTimeout(()=>{
+    debugger;
+    if(window.location.pathname === '/home') {
+      this.getElementByClassName('nav-item')[0].className += 'active'
+    }
+  },300)
   return (
     <Router>
     {/* navigation bar and links */}
@@ -18,7 +24,7 @@ function Header() {
     <div className="header-title d-flex"><Link className="logo font-oswald" to="/">InstaWash</Link></div>
     <nav className="navbar">
       <ul className="d-flex justify-around flex-direction-row">
-        <li className="nav-item active">
+        <li className="nav-item">
           <Link className="nav-Link" to="/">Home</Link>
         </li>
         <li className="nav-item">
@@ -43,7 +49,7 @@ function Header() {
 
   {/* side menu navigation for responsiveness  */}
   <header class="d-flex justify-between menu-header" style={{display: 'none'}}>
-    <div class="header-title d-flex justify-between"><img alt='hamburger menu icon' class="logo font-oswald cursor-pointer" src= {hamBurger} height="45px" width="45px" onClick={showSideNav}/> 
+    <div class="header-title d-flex justify-between"><img alt='hamburger menu icon' class="logo font-oswald cursor-pointer" src= {hamBurger} height="28px" width="28px" onClick={showSideNav}/> 
       <div class="header-title d-flex"><a class="logo font-oswald" href="./index.html">InstaWash</a></div></div>
     <div class="side-bar-navigation fade" id="side-bar-navigation">
       <ul>

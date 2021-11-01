@@ -239,19 +239,24 @@ body {
   .pill-container .pills {
     height: 10px;
     width: 20px;
-    border: 1px solid var(--primary-bg);
+    border: 1px solid var(--secondary-bg);
     border-radius: 15px;
     margin-right: 8px;
     margin-top: 20px;
     cursor: pointer;
   }
   
-  .pill-container .pills.active {
-    background-color: var(--primary-bg);
+  .admin-container .pill-container .pills.active {
+    background-color: var(--primary-bg) !important;
+    border-color: var(--primary-bg) !important;
+  }
+
+  .pills:hover {
+    border-color: var(--secondary-label-1) !important;
   }
   
   .carousel-container {
-    width: 90%;
+    width: 80%;
     padding: 25px;
   }
   
@@ -264,8 +269,9 @@ body {
   /* responsive css for manager and admin page */
   @media only screen and (max-device-width: 480px) {
     .container, .section-header{
-      font-size: 50px !important;
+      font-size: 24px !important;
     }
+
     .section-container {
       flex-direction: column !important;
       margin-bottom: 30px;
@@ -276,21 +282,6 @@ body {
       margin-bottom: 30px;
     }
   
-    .material-table tr {
-      height: 75px !important;
-      max-height: 75px  !important; }
-  
-    .material-table td, .material-table th {
-      font-size: 30px !important;
-    }
-  
-    .order-container input, .order-container select, .order-container label {
-      width: 400px  !important;
-      height: 50px !important;
-      padding: 10px !important;
-      font-size: 26px !important;
-    }
-  
     .graph-view {
         height: 1000px !important;
         max-height: unset !important;
@@ -299,10 +290,11 @@ body {
     .number-card {
         height: 200px !important;
         margin-top: 70px;
-        width: 38%;
+        width: 33%;
+        margin-right: 10px;
     }
     .number-card span:first-child {
-        font-size: 50px;
+        font-size: 24px;
     }
   
     .number-card span:last-child {
@@ -310,6 +302,7 @@ body {
     }
     .number-container {
         flex-wrap: wrap;
+        margin-left: 10px;
     }
   
     .btn.submit-order {
@@ -318,6 +311,18 @@ body {
   
     body {
         overflow-x: hidden;
+    }
+
+    .manage-container{
+      padding: 10px !important;
+    }
+
+    .order-container{
+      flex-direction: column !important;
+    }
+
+    .order-container select{
+      margin-bottom: 15px;
     }
   }
 
@@ -328,6 +333,7 @@ body {
 
   .administration-bg {
     background-color: var(--color-light);
+    overflow-x: clip;
   }
 
   .cursor-pointer {

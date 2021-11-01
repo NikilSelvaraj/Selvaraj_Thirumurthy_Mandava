@@ -14,12 +14,12 @@ function Registration() {
                 <form className="d-flex flex-direction-column w-100" method="post" encType="text/html">
                     <div className="d-flex flex-direction-column">
                         <div className="d-flex flex-direction-row justify-around">
-                            <input type="text" className="name-input" id="fname" name="fname" placeholder="First Name" />
-                            <input type="text" className="name-input" id="lname" name="lname" placeholder="Last Name" />
+                            <input type="text" className="name-input" id="fname" name="fname" placeholder="First Name" maxLength="60" required/>
+                            <input type="text" className="name-input" id="lname" name="lname" placeholder="Last Name" maxLength="60"  required/>
                         </div>
-                        <input type="email" id="email" name="email" placeholder="Email" />
-                        <input type="password" id="password" name="password" placeholder="Password" />
-                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" />
+                        <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                        <input type="password" id="password" name="password" placeholder="Password" required minLength='8'/>
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required minLength='8'/>
                     </div>
                     <div className="d-flex flex-direction-column align-items-center">
                         <button className="btn register-btn" type="submit">Sign up</button>
