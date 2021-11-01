@@ -7,7 +7,7 @@ function HeaderInfo() {
     return (
         <Router>
         {/* Info section below header */}
-            <section>
+            <section className='info-section-container'>
                 <div className="d-flex flex-direction-row justify-around info-link">
                     <p>
                         <span className="font-oswald text-header"> We Wash, Dry and Iron your clothes</span><br /><br />

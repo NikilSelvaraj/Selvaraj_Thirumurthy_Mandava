@@ -35,7 +35,7 @@ function showSlides(n) {
 }
   return (
     //  carousel content
-    <div className="carousel-container d-flex flex-direction-column align-items-center">
+    <div className="carousel-container home-carousel d-flex flex-direction-column align-items-center">
       <div className="slides fade w-100">
         <div className="carousel d-flex align-items-center justify-around">
           <span>

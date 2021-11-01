@@ -246,6 +246,11 @@ footer {
   font-size: 35px;
   font-weight: 400;
   word-wrap: break-word;
+  color: white;
+}
+
+.poster .text-header {
+  color: var(--primary-label-2);
 }
 
 .text-description {
@@ -377,12 +382,12 @@ body {
   flex-direction: column;
   height: calc(100vh - 50px);
   position: absolute;
-  width: 500px;
+  width: 280px;
   background-color: var(--color-light);
   box-shadow: 0px 0px 3px 2px var(--primary-label-1);
   display: none;
   z-index: 2000000;
-  top: 90px;
+  top: 57px;
 }
 
 .side-bar-navigation ul {
@@ -392,7 +397,7 @@ body {
 }
 
 .side-bar-navigation li {
-  font-size: 43px;
+  font-size: 28px;
   padding: 20px;
   color: var(--primary-bg) !important;
   font-family: 'Roboto', 'sans-seriff';
@@ -412,7 +417,7 @@ body {
 
   .menu-header {
     display: flex !important;
-    height: 90px;
+    height: 55px;
     background-color: var(--primary-bg);
   }
 
@@ -422,7 +427,13 @@ body {
 
   .header-title {
     justify-content: flex-end;
-    padding-right: 50px;
-    font-size: 40px;
+    font-size: 22px;
+    height: 45px;
+    padding: 5px;
+  }
+
+  .carousel-container{
+    position:relative;
+    right: 2%;
   }
 }

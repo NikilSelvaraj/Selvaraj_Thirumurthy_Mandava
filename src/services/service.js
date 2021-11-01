@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './service.css'
 import laundry from '../assets/images/laundry.png'
 import laundryWomen from '../assets/images/laundry-women.png'
 import pickUp from '../assets/images/pickup-delivery.png'
 function Service() {
+    useEffect(() => {
+        document.getElementsByClassName('nav-item active')[0].classList.remove('active');
+        document.getElementById('servicesTab').classList.add('active');
+    });
     return (
         <div>
             <div className="container">
@@ -24,10 +28,10 @@ function Service() {
                         Our mission is to provide consistent, quality clothing care with a level of service that exceeds your
                         expectations</p></div>
                 </div>
-                <div class="inner-flex-container" style={{ backgroundColor: "#3e3e3e", maxWidth: "30%" }}>
-                    <div class="responsive"><img src={pickUp}  style={{ height: "100%", width: "100%", objectFit: "contain" }} alt='pickUp' /></div>
-                    <div class="services-heading"><p class="font-oswald" style={{ fontSize: "1.5rem" }}>We do Pickup / Delivery</p></div>
-                    <div class="services-text"><p >Explore our Services</p></div>
+                <div className="inner-flex-container" style={{ backgroundColor: "#3e3e3e", maxWidth: "30%" }}>
+                    <div className="responsive"><img src={pickUp}  style={{ height: "100%", width: "100%", objectFit: "contain" }} /></div>
+                    <div className="services-heading"><p className="font-oswald" style={{ fontSize: "1.5rem" }}>We do Pickup / Delivery</p></div>
+                    <div className="services-text"><p >Explore our Services</p></div>
                 </div>
             </div>
         </div>

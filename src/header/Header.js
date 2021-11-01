@@ -2,7 +2,7 @@ import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
 import hamBurger from '../assets/images/hmaburger-menu.png'
 import './Header.css';
 import Home from '../home/Home';
-import React from 'react';
+import React, {useEffect} from 'react';
 import Authentication from '../authentication/authentication';
 import Registration from '../authentication/registration/registration';
 import Admin from '../administration/admin/admin';
@@ -20,22 +20,22 @@ function Header() {
     <div className="header-title d-flex"><Link className="logo font-oswald" to="/">InstaWash</Link></div>
     <nav className="navbar">
       <ul className="d-flex justify-around flex-direction-row">
-        <li className="nav-item active">
+        <li className="nav-item active" id="homeTab">
           <Link className="nav-Link" to="/">Home</Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" id="aboutTab">
           <Link className="nav-Link" to="/about">About</Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" id="servicesTab">
           <Link className="nav-Link" to="/services">Services</Link>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" id="contactTab">
           <Link className="nav-Link" to="/contactus">Contact</Link>
         </li>
         <li className="nav-item">
           <a className="nav-Link" href="http://nxs4184.uta.cloud/Selvaraj_Thirumurthy_Mandava/src/blog/">Blog</a>
         </li>
-        <li className="nav-item">
+        <li className="nav-item" id="authenticationTab">
           <Link className="nav-Link" to="/authentication">Login/Register</Link>
         </li>
         <form className="form-inline search-control  d-flex align-items-center">
@@ -47,10 +47,10 @@ function Header() {
   </header>
 
   {/* side menu navigation for responsiveness  */}
-  <header class="d-flex justify-between menu-header" style={{display: 'none'}}>
-    <div class="header-title d-flex justify-between"><img alt='hamburger menu icon' class="logo font-oswald cursor-pointer" src= {hamBurger} height="45px" width="45px" onClick={showSideNav}/> 
-      <div class="header-title d-flex"><a class="logo font-oswald" href="./index.html">InstaWash</a></div></div>
-    <div class="side-bar-navigation fade" id="side-bar-navigation">
+  <header className="d-flex justify-between menu-header" style={{display: 'none'}}>
+    <div className="header-title d-flex justify-between"><img alt='hamburger menu icon' className="logo font-oswald cursor-pointer" src= {hamBurger} height="28px" width="28px" onClick={showSideNav}/> 
+      <div className="header-title d-flex"><a className="logo font-oswald" href="./index.html">InstaWash</a></div></div>
+    <div className="side-bar-navigation fade" id="side-bar-navigation">
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>

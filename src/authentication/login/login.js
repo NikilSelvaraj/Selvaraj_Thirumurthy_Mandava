@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
 import login from '../../assets/images/login.png'
 import Registration from "../registration/registration";
 function Login() {
+    useEffect(() => {
+        document.getElementsByClassName('nav-item active')[0].classList.remove('active');
+        document.getElementById('authenticationTab').classList.add('active');
+    });
     return (
         <Router>
             <Switch>
@@ -18,7 +22,7 @@ function Login() {
                             <form className="d-flex flex-direction-column w-100" onSubmit={signIn}>
                                 <div className="d-flex flex-direction-column">
                                     <input type="email" id="email" name="email" placeholder="Username / Email"
-                                        pattern=".+@instawash\.com" size="30" required />
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="30" required />
                                     <input type="password" id="password" name="password" placeholder="Password"
                                         minLength="8" required />
                                 </div>

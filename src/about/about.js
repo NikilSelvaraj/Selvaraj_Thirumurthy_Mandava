@@ -1,6 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './about.css'
 function About() {
+    useEffect(() => {
+        document.getElementsByClassName('nav-item active')[0].classList.remove('active');
+        document.getElementById('aboutTab').classList.add('active');
+    });
     return (
         <div>
             <div className="container">
@@ -13,8 +17,8 @@ function About() {
                 </div>
             </div>
             <div>
-                <h1 class="side-Heading">About InstaWash</h1>
-                <div class="about-content">
+                <h1 className="side-Heading">About InstaWash</h1>
+                <div className="about-content">
                     <p>
                         Insta Wash is a start up Laudry Management Company with two branches one in Arlington, Texas and one in Dallas, Texas.
                         We are planning to expand our business to other states in the US.

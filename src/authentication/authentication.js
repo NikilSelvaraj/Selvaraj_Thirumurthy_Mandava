@@ -5,7 +5,7 @@ import Login from "./login/login";
 function Authentication() {
     return(
         <Router>
-        <section>
+        <section className='authentication-section'>
         <Switch>
         <Route exact path='/authentication'><Login/></Route>
         </Switch>

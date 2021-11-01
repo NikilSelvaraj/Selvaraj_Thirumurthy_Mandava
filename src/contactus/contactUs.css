@@ -63,7 +63,7 @@ Mandava, Sai Venkat, UTA: 1001955604
     justify-content: space-evenly;
   }
   
-  input[type="text"] {
+  .contact-form input[type="text"] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;

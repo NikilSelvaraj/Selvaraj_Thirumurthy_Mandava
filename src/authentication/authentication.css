@@ -109,9 +109,10 @@ body {
   /* responsive css for login and registration page */
   @media only screen and (max-device-width: 480px){
     .login-section{
-      justify-content: center !important;
+      justify-content: flex-start !important;
       flex-direction: column  !important;
-      height: 1400px;
+      align-items: center !important;
+      min-height: 100%;
     }
   
     .login-section div.image-container{
@@ -119,15 +120,15 @@ body {
     }
   
     .login-container {
-      transform: scale(2.0);
+      transform: scale(.8);
     }
   
   
   
     .registration-section{
-      justify-content: center !important;
+      justify-content: flex-start !important;
       flex-direction: column  !important;
-      height: 1500px;
+      min-height: 100%;
     }
   
     .registration-section div.image-container{
@@ -135,7 +136,7 @@ body {
     }
   
     .registration-container {
-      transform: scale(2.0);
+      transform: scale(.8);
     }
   
     body {
@@ -149,3 +150,7 @@ body {
     color: var(--primary-bg-1);
   }
   
+
+  .authentication-section {
+    background-color: var(--primary-bg);
+  }
