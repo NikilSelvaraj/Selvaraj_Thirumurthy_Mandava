@@ -7,14 +7,14 @@ function PlaceOrder() {
                 <div className="font-oswald d-flex flex-direction-row w-100  justify-center sideNavHeader"> Place Order </div>
                 <div className="form">
                     <form className="d-flex flex-direction-column w-100 align-items-center" action="#" method="post" encType="text/plain">
-                        <div className="d-flex flex-direction-column order-container">
+                        <div className="d-flex flex-direction-column order-Container">
                             <div className="d-flex flex-direction-row justify-center media">
-                                <input type="text" id="fname" placeholder="First Name" required/>
-                                <input type="text" id="lane" placeholder="Last Name" required/>
+                                <input type="text" id="fname"  className="font-roboto" placeholder="First Name" required/>
+                                <input type="text" id="lane"  className="font-roboto" placeholder="Last Name" required/>
                             </div>
                             <div className="d-flex flex-direction-row justify-center media">
-                                <input type="text" id="email" name="email" placeholder="Email" required/>
-                                 <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required/>
+                                <input type="text" id="email" className="font-roboto"  name="email" placeholder="Email" required/>
+                                 <input type="number" id="phoneNumber" className="font-roboto"  name="phoneNumber" placeholder="Phone Number" required/>
                             </div>
                             <div className="d-flex flex-direction-row justify-center media">
                                 <select name="service" id="service" className="font-roboto" defaultValue={'DEFAULT'}  required>

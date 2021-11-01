@@ -11,13 +11,13 @@ function Service() {
             </div>
             <div className="flex-container">
                 <div className="inner-flex-container" style={{ backgroundColor: "#3e3e3e", maxWidth: "30%" }}>
-                    <div className="responsive"><img src={laundry} style={{ height: "100%", width: "100%", objectFit: "contain" }} /></div>
+                    <div className="responsive"><img src={laundry} style={{ height: "100%", width: "100%", objectFit: "contain" }} alt='laundry'/></div>
                     <div className="services-heading"><p className="font-oswald" style={{ fontSize: "1.5rem" }}>Get your clothes washed and delivered in no time.</p></div>
                     <div className="services-text"><p >No more wait times. No more hassle. Do your laundry at ease with Instawash.<br></br>
                         Your one-stop solution for getting your clothes washed, dried , ironed and delivered at your doorstep.</p></div>
                 </div>
                 <div className="inner-flex-container" style={{ backgroundColor: "#3e3e3e", maxWidth: "30%" }}>
-                    <div className="responsive"><img src={laundryWomen} style={{ height: "100%", width: "100%", objectFit: "contain" }} /></div>
+                    <div className="responsive"><img src={laundryWomen} style={{ height: "100%", width: "100%", objectFit: "contain" }} alt='laundryWomen' /></div>
                     <div className="services-heading"><p className="font-oswald" style={{ fontSize: "1.5rem" }}>We Wash, Dry and Iron your clothes</p></div>
                     <div className="services-text"><p >Care and quality are the core values of InstaWash dry cleaning and laundry
                         service.<br></br>
@@ -25,7 +25,7 @@ function Service() {
                         expectations</p></div>
                 </div>
                 <div class="inner-flex-container" style={{ backgroundColor: "#3e3e3e", maxWidth: "30%" }}>
-                    <div class="responsive"><img src={pickUp}  style={{ height: "100%", width: "100%", objectFit: "contain" }} /></div>
+                    <div class="responsive"><img src={pickUp}  style={{ height: "100%", width: "100%", objectFit: "contain" }} alt='pickUp' /></div>
                     <div class="services-heading"><p class="font-oswald" style={{ fontSize: "1.5rem" }}>We do Pickup / Delivery</p></div>
                     <div class="services-text"><p >Explore our Services</p></div>
                 </div>

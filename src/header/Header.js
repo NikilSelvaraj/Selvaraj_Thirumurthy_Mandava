@@ -10,6 +10,8 @@ import Manager from '../administration/manager/manager';
 import ContactUs from  '../contactus/contactUs'
 import About from '../about/about';
 import Service from '../services/service';
+import User from '../user/user';
+import Visitor from '../visitor/visitor';
 function Header() {
   return (
     <Router>
@@ -29,6 +31,9 @@ function Header() {
         </li>
         <li className="nav-item">
           <Link className="nav-Link" to="/contactus">Contact</Link>
+        </li>
+        <li className="nav-item">
+          <a className="nav-Link" href="http://nxs4184.uta.cloud/Selvaraj_Thirumurthy_Mandava/src/blog/">Blog</a>
         </li>
         <li className="nav-item">
           <Link className="nav-Link" to="/authentication">Login/Register</Link>
@@ -51,6 +56,7 @@ function Header() {
         <li><Link to="/about">About</Link></li>
         <li><Link to="/services">Services</Link></li>
         <li><Link to="/contactus">Contact Us</Link></li>
+        <li><a href='http://nxs4184.uta.cloud/Selvaraj_Thirumurthy_Mandava/src/blog/'></a></li>
         <li><Link to="/authentication">Login / Register</Link></li>
       </ul>
     </div>
@@ -64,6 +70,8 @@ function Header() {
       <Route exact path='/registration'><Registration/></Route>
       <Route exact path='/admin'><Admin/></Route>
       <Route exact path='/manager'><Manager/></Route>
+      <Route exact path='/user'><User/></Route>
+      <Route exact path='/visitor'><Visitor/></Route>
   </Switch>
   </Router>
   );
