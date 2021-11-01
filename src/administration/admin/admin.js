@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../administration.css'
 import add from '../../assets/images/plus.png';
 import customerGraph from '../../assets/images/customer-graph-1.png';
@@ -12,10 +12,15 @@ import { addManager } from '../administration';
 import { populateTables } from "../administration";
 function Admin () {
     var slideIndex = 1;
+    useEffect(() => {
+        document.getElementsByClassName('nav-item active')[0].classList.remove('active');
+        document.getElementById('authenticationTab').classList.add('active');
+        document.getElementById('authenticationTab').childNodes[0].innerText = 'Admin';
+    });
     setTimeout(()=> {
         populateTables();
         showSlides(slideIndex);
-    },1000);
+    },500);
 
      // Thumbnail image controls
      function currentSlide(n) {

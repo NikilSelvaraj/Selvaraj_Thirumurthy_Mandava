@@ -1,13 +1,17 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './contactUs.css'
 // import '../../../Static website/src/themes/dark.css'
 function ContactUs() {
+    useEffect(() => {
+        document.getElementsByClassName('nav-item active')[0].classList.remove('active');
+        document.getElementById('contactTab').classList.add('active');
+    });
     return (
         <div>
             <div className="container">
                 <div className="font-oswald heading"> Contact Us </div>
             </div>
-            <div className="formContainer">
+            <div className="formContainer contact-form">
                 <div className="field-container">  
                 <div className="innerHeading">
                     <p>Your feedback matters. Write to us if you have any questions, queries or suggestions regarding any

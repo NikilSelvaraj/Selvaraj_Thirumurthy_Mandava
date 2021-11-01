@@ -206,7 +206,7 @@ body {
   
   .graph-view img {
     height: 300px;
-    width: 80%;
+    width: 90%;
   }
   
   .number-card {
@@ -256,7 +256,7 @@ body {
   }
   
   .carousel-container {
-    width: 80%;
+    width: 90%;
     padding: 25px;
   }
   
@@ -287,6 +287,11 @@ body {
         max-height: unset !important;
         margin-bottom: 20px;
     }
+
+    .graph-view img {
+      width: 80%;  
+    }
+
     .number-card {
         height: 200px !important;
         margin-top: 70px;
@@ -323,6 +328,10 @@ body {
 
     .order-container select{
       margin-bottom: 15px;
+    }
+
+    .carousel-container{
+      width: 80%;
     }
   }
 

@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
 import login from '../../assets/images/login.png'
 import Registration from "../registration/registration";
 function Login() {
+    useEffect(() => {
+        document.getElementsByClassName('nav-item active')[0].classList.remove('active');
+        document.getElementById('authenticationTab').classList.add('active');
+    });
     return (
         <Router>
             <Switch>

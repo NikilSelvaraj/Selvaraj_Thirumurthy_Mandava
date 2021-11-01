@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../administration.css';
 import add from '../../assets/images/plus.png';
 import { addCustomer } from '../administration';
@@ -9,9 +9,14 @@ import { addTasks } from '../administration';
 import { addEquipment } from '../administration';
 import { populateTables } from "../administration";
 function Manager () {
+    useEffect(() => {
+        document.getElementsByClassName('nav-item active')[0].classList.remove('active');
+        document.getElementById('authenticationTab').classList.add('active');
+        document.getElementById('authenticationTab').childNodes[0].innerText = 'Manager';
+    });
     setTimeout(()=> {
-        populateTables()
-    },1000);
+        populateTables();
+    },500);
     return (
         <section className='administration-bg'>
          {/* Header section title */}
