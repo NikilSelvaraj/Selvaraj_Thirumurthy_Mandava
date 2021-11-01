@@ -6,7 +6,7 @@ function ScheduleDrop() {
             <div id="ScheduleDrop" className="info-content">
                 <div className="font-oswald d-flex flex-direction-row w-100  justify-center sideNavHeader"> Schedule a Drop</div>
                 <div className="form">
-                    <form className="d-flex flex-direction-columan w-100 justify-center sideNavHeader" action="#" method="post">
+                    <form className="d-flex flex-direction-columan w-100 justify-center sideNavHeader schedule-form" action="#" method="post">
                         <div className="d-flex flex-direction-column schedule-container">
                             <div className="d-flex flex-direction-row justify-center media">
                                 <input type="text" id="fname" name="fname" placeholder="First Name" required />

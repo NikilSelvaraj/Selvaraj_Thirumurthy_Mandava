@@ -2,9 +2,9 @@
     width: 100%;
   }
 
-input[type="text"],
-input[type="number"],
-input [type="email"] {
+.subscribe-form input[type="text"],
+.subscribe-form input[type="number"],
+.subscribe-form input [type="email"] {
   flex: 1;
   padding: 12px;
   border: 1px solid #ccc;

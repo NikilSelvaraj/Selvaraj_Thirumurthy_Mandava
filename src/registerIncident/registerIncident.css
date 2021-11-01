@@ -1,9 +1,9 @@
 .register-container {
     width: 150%;
 }
-input[type="text"],
-input[type="number"],
-input [type="email"] {
+.register-incident-form input[type="text"],
+.register-incident-form input[type="number"],
+.register-incident-form input [type="email"] {
   flex: 1;
   padding: 12px;
   border: 1px solid #ccc;

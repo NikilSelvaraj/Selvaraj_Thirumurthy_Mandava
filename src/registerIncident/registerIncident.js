@@ -7,7 +7,7 @@ function RegisterIncident () {
             <div className="font-oswald d-flex flex-direction-row w-100  justify-center sideNavHeader">Register Incident and
         Requests</div>
       <div className="form">
-        <form className="d-flex flex-direction-column w-100 align-items-center" action="#" method="post"
+        <form className="d-flex flex-direction-column w-100 align-items-center register-incident-form" action="#" method="post"
           enctype="text/plain">
           <div className="d-flex flex-direction-column register-container">
             <div className="d-flex flex-direction-row justify-center media">

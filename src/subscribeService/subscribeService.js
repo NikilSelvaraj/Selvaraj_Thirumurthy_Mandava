@@ -7,7 +7,7 @@ function SubscribeService() {
       <div className="font-oswald d-flex flex-direction-row w-100  justify-center sideNavHeader"> Subscribe to a Service
       </div>
       <div className="form">
-        <form className="d-flex flex-direction-column w-100 align-items-center" action="#" method="post"
+        <form className="d-flex flex-direction-column w-100 align-items-center subscribe-form" action="#" method="post"
           enctype="text/plain">
           <div className="d-flex flex-direction-column subscribe-container">
             <div className="d-flex flex-direction-row justify-center media">

@@ -6,7 +6,7 @@ function PlaceOrder() {
             <div id="place-order" className="info-content">
                 <div className="font-oswald d-flex flex-direction-row w-100  justify-center sideNavHeader"> Place Order </div>
                 <div className="form">
-                    <form className="d-flex flex-direction-column w-100 align-items-center" action="#" method="post" encType="text/plain">
+                    <form className="d-flex flex-direction-column w-100 align-items-center place-order-form" action="#" method="post" encType="text/plain">
                         <div className="d-flex flex-direction-column order-Container">
                             <div className="d-flex flex-direction-row justify-center media">
                                 <input type="text" id="fname"  className="font-roboto" placeholder="First Name" required/>

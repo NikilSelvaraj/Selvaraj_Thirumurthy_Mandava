@@ -73,7 +73,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 15px;
     padding: 3px;
-    border: 0;
+    border: 0 !important;
     border-bottom: 1px solid var(--primary-label-1) !important;
   }
   
@@ -83,13 +83,13 @@ body {
   }
   
   .registration-container .name-input {
-    width: 148px;
+    width: 148px !important;
   }
   .name-input:first-child {
-    margin-right: 0px;
+    margin-right: 0px !important;
   }
   .name-input:last-child {
-    margin-left: 5px;
+    margin-left: 5px !important;
   }
   
   /* 

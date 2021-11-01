@@ -1,6 +1,6 @@
-input[type="text"],
-input[type="number"],
-input [type="email"] {
+.place-order-form input[type="text"],
+.place-order-form input[type="number"],
+.place-order-form input [type="email"] {
   flex: 1;
   padding: 12px;
   border: 1px solid #ccc;
