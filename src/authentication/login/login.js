@@ -42,7 +42,6 @@ function Login() {
 
 
     function signIn(event) {
-        debugger;
         event.preventDefault();
         var emailValue = document.getElementById('email').value;
         if (emailValue) {
