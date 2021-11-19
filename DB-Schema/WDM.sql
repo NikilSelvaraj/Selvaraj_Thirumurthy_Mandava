@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 19, 2021 at 07:14 AM
+-- Generation Time: Nov 19, 2021 at 09:17 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -45,16 +45,23 @@ CREATE TABLE `Address` (
 --
 
 CREATE TABLE `Customer` (
-  `ID` int(11) NOT NULL,
-  `First_Name` varchar(100) DEFAULT NULL,
+  `ID` int(20) NOT NULL,
+  `First_Name` varchar(100) NOT NULL,
   `Last_Name` varchar(100) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
-  `Created_Date` timestamp NULL DEFAULT NULL,
+  `Created_Date` datetime DEFAULT current_timestamp(),
   `Last_Update` timestamp NULL DEFAULT NULL,
   `Address_ID` int(11) DEFAULT NULL,
-  `Password` varchar(24) NOT NULL,
+  `Password` varchar(75) NOT NULL,
   `User_Type` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Customer`
+--
+
+INSERT INTO `Customer` (`ID`, `First_Name`, `Last_Name`, `Email`, `Created_Date`, `Last_Update`, `Address_ID`, `Password`, `User_Type`) VALUES
+(450249613, 'NIKIL NANDHA', 'SELVARAJ', 'nxs4184@mavs.uta.edu', '2021-11-19 14:07:47', NULL, NULL, '$2y$09$wmQO0UzJzMfm79ZsGDR.2.XxKq0oBiIJ5P2xdz4nIVmlZZNZELNRm', 'User');
 
 -- --------------------------------------------------------
 
@@ -107,12 +114,12 @@ CREATE TABLE `Payment` (
 --
 
 CREATE TABLE `Personel` (
-  `ID` int(11) NOT NULL,
+  `ID` varchar(20) NOT NULL,
   `First_Name` varchar(100) DEFAULT NULL,
   `Last_Name` varchar(100) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
   `Password` varchar(50) DEFAULT NULL,
-  `Last_Update` timestamp NULL DEFAULT NULL,
+  `Last_Update` timestamp NULL DEFAULT current_timestamp(),
   `Address_ID` int(11) DEFAULT NULL,
   `User_Type` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -162,7 +169,9 @@ ALTER TABLE `Address`
 -- Indexes for table `Customer`
 --
 ALTER TABLE `Customer`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- Indexes for table `Equipment`
@@ -186,7 +195,9 @@ ALTER TABLE `Payment`
 -- Indexes for table `Personel`
 --
 ALTER TABLE `Personel`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `ID` (`ID`),
+  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- Indexes for table `Services`
