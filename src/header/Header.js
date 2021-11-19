@@ -61,6 +61,7 @@ function Header() {
       </ul>
     </div>
   </header>
+  <div id="snackbar">Toaster Message</div>
   <Switch>
       <Route exact path='/'><Home/></Route> 
       <Route exact path='/about'><About/></Route>

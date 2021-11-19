@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 18, 2021 at 10:12 PM
+-- Generation Time: Nov 19, 2021 at 07:14 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `WDM`
 --
-CREATE DATABASE IF NOT EXISTS `WDM` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `WDM`;
 
 -- --------------------------------------------------------
 
@@ -40,10 +38,6 @@ CREATE TABLE `Address` (
   `Postal_Code` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- RELATIONSHIPS FOR TABLE `Address`:
---
-
 -- --------------------------------------------------------
 
 --
@@ -55,16 +49,12 @@ CREATE TABLE `Customer` (
   `First_Name` varchar(100) DEFAULT NULL,
   `Last_Name` varchar(100) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
-  `Phone_No` int(11) DEFAULT NULL,
   `Created_Date` timestamp NULL DEFAULT NULL,
   `Last_Update` timestamp NULL DEFAULT NULL,
   `Address_ID` int(11) DEFAULT NULL,
-  `Gender` varchar(50) DEFAULT NULL
+  `Password` varchar(24) NOT NULL,
+  `User_Type` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELATIONSHIPS FOR TABLE `Customer`:
---
 
 -- --------------------------------------------------------
 
@@ -82,10 +72,6 @@ CREATE TABLE `Equipment` (
   `IsCurrentlyInUse` varchar(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- RELATIONSHIPS FOR TABLE `Equipment`:
---
-
 -- --------------------------------------------------------
 
 --
@@ -99,10 +85,6 @@ CREATE TABLE `Inventory` (
   `Quantity` int(11) DEFAULT NULL,
   `Item_Desc` varchar(1000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELATIONSHIPS FOR TABLE `Inventory`:
---
 
 -- --------------------------------------------------------
 
@@ -118,10 +100,6 @@ CREATE TABLE `Payment` (
   `Bill_No` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- RELATIONSHIPS FOR TABLE `Payment`:
---
-
 -- --------------------------------------------------------
 
 --
@@ -133,16 +111,11 @@ CREATE TABLE `Personel` (
   `First_Name` varchar(100) DEFAULT NULL,
   `Last_Name` varchar(100) DEFAULT NULL,
   `Email` varchar(100) DEFAULT NULL,
-  `Phone_No` int(11) DEFAULT NULL,
   `Password` varchar(50) DEFAULT NULL,
-  `Gender` varchar(50) DEFAULT NULL,
   `Last_Update` timestamp NULL DEFAULT NULL,
-  `Address_ID` int(11) DEFAULT NULL
+  `Address_ID` int(11) DEFAULT NULL,
+  `User_Type` varchar(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELATIONSHIPS FOR TABLE `Personel`:
---
 
 -- --------------------------------------------------------
 
@@ -157,10 +130,6 @@ CREATE TABLE `Services` (
   `PriceperPound` int(11) DEFAULT NULL,
   `LateService_charges` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELATIONSHIPS FOR TABLE `Services`:
---
 
 -- --------------------------------------------------------
 
@@ -178,12 +147,6 @@ CREATE TABLE `Service_Order` (
   `Amount` int(11) DEFAULT NULL,
   `Order_DateTime` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- RELATIONSHIPS FOR TABLE `Service_Order`:
---   `Customer_ID`
---       `Customer` -> `ID`
---
 
 --
 -- Indexes for dumped tables
@@ -247,48 +210,6 @@ ALTER TABLE `Service_Order`
 --
 ALTER TABLE `Service_Order`
   ADD CONSTRAINT `service_order_ibfk_1` FOREIGN KEY (`Customer_ID`) REFERENCES `Customer` (`ID`);
-
-
---
--- Metadata
---
-USE `phpmyadmin`;
-
---
--- Metadata for table Address
---
-
---
--- Metadata for table Customer
---
-
---
--- Metadata for table Equipment
---
-
---
--- Metadata for table Inventory
---
-
---
--- Metadata for table Payment
---
-
---
--- Metadata for table Personel
---
-
---
--- Metadata for table Services
---
-
---
--- Metadata for table Service_Order
---
-
---
--- Metadata for database WDM
---
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

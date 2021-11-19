@@ -19,17 +19,18 @@ function Login() {
         event.preventDefault();
         axios({
             method: 'post',
-            url: process.env.REACT_APP_API_PATH + '/loginUser.php',
+            url: process.env.REACT_APP_API_PATH + '/login.php',
             headers: {
                 'content-type': 'application/json'
             },
             data: credentials
         })
             .then(result => {
-                console.log(result.data)
+                console.log(result)
                 setState({
                     dataSent: result.data.sent,
                 });
+                // window.location = `/${result.User_Type}`
             })
             .catch(error => {
                 setState({
@@ -67,6 +68,7 @@ function Login() {
                             </form>
                         </div>
                     </div>
+                    <div id="snackbar">Toaster Message</div>
                 </Route>
             </Switch>
         </Router>

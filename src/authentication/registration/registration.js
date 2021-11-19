@@ -4,8 +4,9 @@ import signup from '../../assets/images/signup.png'
 import Authentication from "../authentication";
 import axios from 'axios';
 function Registration() {
+    const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '', userType:'User' };
     const [state, setState] = useState({});
-    const [registrationInfo, setRegistrationInfo] = useState({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '' });
+    const [registrationInfo, setRegistrationInfo] = useState(initialState);
     function handleChange(event) {
         const { name, value } = event.target;
         setRegistrationInfo({ ...registrationInfo, [name]: value })
@@ -13,6 +14,15 @@ function Registration() {
 
     function onSubmit(event) {
         event.preventDefault();
+        if(registrationInfo.password !== registrationInfo.confirmPassword) {
+            var x = document.getElementById("snackbar");
+                x.className = "show danger";
+                x.innerText = 'Password does not match';
+                setTimeout(function(){
+                     x.className = x.className.replace("show", "");
+            }, 5000);
+            return;
+        }
         axios({
             method: 'post',
             url: process.env.REACT_APP_API_PATH + '/registerUser.php',
@@ -26,11 +36,24 @@ function Registration() {
                 setState({
                     dataSent: result.data.sent,
                 });
+                setRegistrationInfo(initialState);
+                var x = document.getElementById("snackbar");
+                x.className = "show";
+                x.innerText = 'Registration Successful';
+                setTimeout(function(){
+                     x.className = x.className.replace("show", "");
+            }, 3000);
             })
             .catch(error => {
                 setState({
                     error: error.message
                 });
+                var x = document.getElementById("snackbar");
+                x.className = "show danger";
+                x.innerText = 'Email Address already present';
+                setTimeout(function(){
+                     x.className = x.className.replace("show", "");
+            }, 5000);
                 console.log(state['error']);
             });
     }
@@ -42,7 +65,7 @@ function Registration() {
                     <div className="d-flex flex-direction-row justify-around registration-section fade">
                         <div className="registration-container">
                             <div className="d-flex justify-center registration-header font-oswald">Create an account</div>
-                            <form className="d-flex flex-direction-column w-100" onSubmit={onSubmit}>
+                            <form className="d-flex flex-direction-column w-100" onSubmit={onSubmit} id="registration-form">
                                 <div className="d-flex flex-direction-column">
                                     <div className="d-flex flex-direction-row justify-around">
                                         <input type="text" className="name-input" id="fname" name="firstName" placeholder="First Name" maxLength="60"
