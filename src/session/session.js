@@ -1,5 +1,5 @@
 export default function validateSession(sessionType) {
-    let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    let userInfo = JSON.parse(localStorage.getItem("userInfo") || '{}');
     if (userInfo && userInfo.User_Type &&
         sessionType === userInfo.User_Type) {
         let element = document.getElementsByClassName('hide-section');
