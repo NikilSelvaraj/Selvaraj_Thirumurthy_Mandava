@@ -7,10 +7,12 @@ import RegisterIncident from '../registerIncident/registerIncident';
 import SubscribeService from '../subscribeService/subscribeService';
 import './SideMenuBar.css'
 function SideMenuBar () {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
+    // console.log(userInfo)
     return (
         <Router>
             <div className="d-flex flex-direction-row container">
-                <div className="font-oswald heading "> Hello User_301287 </div>
+                <div className="font-oswald heading "> Hello {userInfo.First_Name} {userInfo.Last_Name} </div>
             </div>
             <div className="user-dashboard-container h-100 d-flex flex-direction-row">
                 <div className="sideNav">
@@ -38,7 +40,6 @@ function SideMenuBar () {
             </Switch>
             </section>
             </div>
-            
         </Router>
     )
 }

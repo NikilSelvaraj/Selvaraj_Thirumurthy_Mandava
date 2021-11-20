@@ -12,13 +12,13 @@ class PlaceOrder extends Component{
             service:'',
             Items:'',
             Instruction:'',
-            DataSent:false,
             customerID:''
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClear = this.handleClear.bind(this)
     }
+    userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
     handleChange(event){
         const target = event.target;
         const value = target.value;
@@ -41,9 +41,10 @@ class PlaceOrder extends Component{
     }
     handleSubmit(event){
         console.log("State Data"+JSON.stringify(this.state))
+        console.log('id='+this.userInfo.ID)
         event.preventDefault();
         this.setState({
-            customerID:localStorage.getItem("userInfo").ID 
+            customerID:this.userInfo.ID
         })
         axios({
             method:'post',
@@ -57,15 +58,15 @@ class PlaceOrder extends Component{
             var x = document.getElementById("snackbar-order");
             x.className = "show";
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-            this.handleClear();
+            // this.handleClear();
         }).catch(error => {
-           console.log(error.message)
-           var x = document.getElementById("snackbar-order");
-                x.className = "show danger";
-                x.innerText = 'Order Not Placed';
-                setTimeout(function(){
-                     x.className = x.className.replace("show", "");
-            }, 5000);
+            console.log(error.message)
+            var x = document.getElementById("snackbar-order");
+            x.className = "show danger";
+            x.innerText = 'Order not placed';
+            setTimeout(function(){
+                 x.className = x.className.replace("show", "");
+        }, 5000);
         })
     }
     render() {

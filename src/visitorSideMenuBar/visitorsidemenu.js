@@ -5,11 +5,12 @@ import RegisterIncident from '../registerIncident/registerIncident';
 import ScheduleDrop from '../scheduleDrop/scheduleDrop';
 import './visitorsidemenu.css'
 function Visitorsidemenu() {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
     return (
         <div>
             <Router>
             <div className="d-flex flex-direction-row container">
-                <div className="font-oswald heading"> Hello Visitor_01287 </div>
+                <div className="font-oswald heading"> Hello {userInfo.First_Name} {userInfo.Last_Name} </div>
             </div>
             <div className="user-dashboard-container h-100 d-flex flex-direction-row">
                 <div className="sideNav">
