@@ -4,15 +4,17 @@ import login from '../../assets/images/login.png'
 import Registration from "../registration/registration";
 import axios from 'axios';
 function Login() {
+    const initialState = {email:'',password:'',forgotPassword:false};
     useEffect(() => {
         document.getElementsByClassName('nav-item active')[0].classList.remove('active');
         document.getElementById('authenticationTab').classList.add('active');
     });
     const [state,setState] = useState({});
-    const [credentials, setCredentials] = useState({username:'',password:'',forgotPassword:false});
+    const [credentials, setCredentials] = useState(initialState);
     function handleChange(event) {
         const { name, value } = event.target;
         setCredentials({...credentials,[name]:value })
+        document.getElementById('invalid-cred').classList.add('d-none');
     }
 
     function onSignin(event) {
@@ -26,16 +28,19 @@ function Login() {
             data: credentials
         })
             .then(result => {
-                console.log(result)
                 setState({
                     dataSent: result.data.sent,
                 });
-                // window.location = `/${result.User_Type}`
+                document.getElementById('invalid-cred').classList.add('d-none');
+                setCredentials(initialState);
+                window.location = `/${result.data.User_Type}`
             })
             .catch(error => {
                 setState({
                     error: error.message
                 });
+                setCredentials(initialState);
+                document.getElementById('invalid-cred').classList.remove('d-none');
                 console.log(state['error']);
             });
     }
@@ -53,14 +58,16 @@ function Login() {
                             <div className="d-flex justify-center login-header font-oswald">Welcome back</div>
                             <form className="d-flex flex-direction-column w-100" onSubmit={onSignin}>
                                 <div className="d-flex flex-direction-column">
-                                    <input type="email" id="email" name="username" placeholder="Email"
+                                    <input type="email" id="email" name="email" placeholder="Email"
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="30" required 
-                                        value={credentials['username']} onChange={handleChange}/>
+                                        value={credentials['email']} onChange={handleChange}/>
                                     <input type="password" id="password" name="password" placeholder="Password"
                                         minLength="8" required value={credentials['password']} onChange={handleChange}/>
                                 </div>
                                 <div className="d-flex flex-direction-column align-items-center">
                                     <button className="btn login-btn" type="submit">Sign in</button>
+                                    <br />
+                                    <div id="invalid-cred" className="d-none">Invalid Email address or Password!</div>
                                     <br />
                                     <p>Don't have an account yet? <Link className='link-style'
                                         to="/registration">Register</Link> here</p>
@@ -68,7 +75,6 @@ function Login() {
                             </form>
                         </div>
                     </div>
-                    <div id="snackbar">Toaster Message</div>
                 </Route>
             </Switch>
         </Router>

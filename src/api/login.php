@@ -9,30 +9,32 @@ if(isset($postdata) && !empty($postdata)){
     $request = json_decode($postdata);
     $email = $request->email;
     $password = $request->password;
-    $table = 'Customer';
-    $sql = "SELECT First_Name, Last_Name, User_Type, ID, Email FROM $table
-    WHERE Email = '$email' AND Password = '$password'";
-    $result = mysqli_query($db, $sql);
-    if($result){
-        $rows = array();
+    $sql_Customer = "SELECT First_Name, Last_Name, User_Type, ID, Email,Password FROM Customer
+    WHERE Email = '$email'";
+    $result = mysqli_query($db, $sql_Customer);
+    if($result) {
         while($r = mysqli_fetch_assoc($result)) {
-            $rows[] = $r;
+            $rows = $r;
         }
+    }
+    if($rows && password_verify($password,$rows['Password'])){
+        $rows['Password'] = '';
         echo json_encode($rows);
     }
     else{
-        $table = 'Personel';
-        $result = mysqli_query($db, $sql);
-        if($result) {
-            $rows = array();
-            while($r = mysqli_fetch_assoc($result)) {
-                $rows[] = $r;
+        $sql_Personel = "SELECT First_Name, Last_Name, User_Type, ID, Email, Password FROM Personel
+        WHERE Email = '$email'";
+        $result_row = mysqli_query($db, $sql_Personel);
+        if($result_row) {
+            while($r = mysqli_fetch_assoc($result_row)) {
+                $row = $r;
             }
-
-            echo json_encode($rows);
-
         }
-        http_response_code(422); 
+        if($row && password_verify($password,$row['Password'])){
+            $row['Password'] = '';
+            echo json_encode($row);
+        } else {
+        http_response_code(422); }
     }
          
 }

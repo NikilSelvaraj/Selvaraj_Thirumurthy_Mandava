@@ -17,13 +17,12 @@ if(isset($postdata) && !empty($postdata)){
     $id = (int)((rand() * rand())/rand());
     $sql = "INSERT INTO Customer (First_Name,Last_Name,Email,Password,User_Type,ID) VALUES ('$firstName','$lastName','$email','$password_hash','$userType',$id)";
     $result = mysqli_query($db, $sql);
-    echo json_encode($result);
-    // if($result){
-    //     http_response_code(201);
-    // }
-    // else{
-    //      http_response_code(422); 
-    // }
+    if($result){
+        http_response_code(201);
+    }
+    else{
+         http_response_code(422); 
+    }
          
 }
 ?> 

@@ -154,3 +154,22 @@ body {
   .authentication-section {
     background-color: var(--primary-bg);
   }
+
+  #invalid-cred {
+    color: rgb(196, 28, 28);
+    text-align: center;
+    padding: 8px;
+    width: 70%;
+  }
+
+  .user-label {
+    margin-left: 10px;
+    padding-right: 20px;
+    font-size: 15px;
+  }
+
+  .user-select {
+    width: 200px;
+    margin-left: 20px;
+    margin-right: 0px;
+  }

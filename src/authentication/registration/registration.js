@@ -75,6 +75,13 @@ function Registration() {
                                     </div>
                                     <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                         value={registrationInfo['email']} onChange={handleChange} />
+                                     <div className="d-flex flex-direction-row justify-center align-items-center">   
+                                        <select name="userType" id="userType" className="user-select" value={registrationInfo['userType']} required onChange={handleChange}>
+                                            <option value="User">User</option>
+                                            <option value="Visitor">Visitor</option>
+                                        </select>
+                                        <label for="userType" className="user-label">Select User Type</label>
+                                    </div>
                                     <input type="password" id="password" name="password" placeholder="Password" required minLength='8'
                                         value={registrationInfo['password']} onChange={handleChange} />
                                     <input type="password" id="confirm_password" name="confirmPassword" placeholder="Confirm Password" required minLength='8'
