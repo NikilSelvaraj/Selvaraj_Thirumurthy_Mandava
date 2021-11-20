@@ -173,3 +173,7 @@ body {
     margin-left: 20px;
     margin-right: 0px;
   }
+
+  .hide-section {
+    display: none !important;
+  }

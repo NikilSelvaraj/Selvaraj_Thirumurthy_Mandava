@@ -10,17 +10,15 @@ import { addEquipment } from '../administration';
 import { addOrder } from '../administration';
 import { addManager } from '../administration';
 import { populateTables } from "../administration";
+import validateSession from "../../session/session";
 function Admin () {
     var slideIndex = 1;
     useEffect(() => {
+        validateSession('Admin');
         document.getElementsByClassName('nav-item active')[0].classList.remove('active');
         document.getElementById('authenticationTab').classList.add('active');
-        document.getElementById('authenticationTab').childNodes[0].innerText = 'Admin';
         populateTables();
         showSlides(slideIndex);
-        return() => {
-            document.getElementById('authenticationTab').childNodes[0].innerText = 'Login/Register';  
-        }
     });
      // Thumbnail image controls
      function currentSlide(n) {
@@ -43,7 +41,7 @@ function Admin () {
         pills[slideIndex - 1].className += " active";
     }
     return (
-      <section className='administration-bg'>
+      <section className='administration-bg hide-section'>
       <div className="container" id="heading-container">
             <div className="font-oswald heading"> Instawash Admin </div>
         </div>

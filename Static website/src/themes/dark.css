@@ -412,3 +412,7 @@ body {
     font-size: 40px;
   }
 }
+
+.hide-section {
+  display: none !important;
+}

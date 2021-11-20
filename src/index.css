@@ -158,6 +158,8 @@ header.nav-header {
 .navbar ul {
   list-style: none;
   align-items: center;
+  height: 50px;
+  max-height: 50px;
 }
 
 .nav-Link {

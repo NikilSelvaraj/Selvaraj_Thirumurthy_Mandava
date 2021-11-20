@@ -1,8 +1,9 @@
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
-import hamBurger from '../assets/images/hmaburger-menu.png'
+import hamBurger from '../assets/images/hmaburger-menu.png';
+import logoutImg from '../assets/images/logout.png';
 import './Header.css';
 import Home from '../home/Home';
-import React from 'react';
+import React, {useEffect} from 'react';
 import Authentication from '../authentication/authentication';
 import Registration from '../authentication/registration/registration';
 import Admin from '../administration/admin/admin';
@@ -12,7 +13,16 @@ import About from '../about/about';
 import Service from '../services/service';
 import User from '../user/user';
 import Visitor from '../visitor/visitor';
+import { logout } from '../session/session';
 function Header() {
+  useEffect(()=> {
+    const userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
+    if(userInfo && JSON.stringify(userInfo) !== '{}') {
+    document.getElementById('authenticationTab').childNodes[0].innerText = `${userInfo.First_Name} ${userInfo.Last_Name}`; 
+    document.getElementById('logout-tab').classList.remove('d-none');
+    document.getElementById('logout-tab').classList.add('logout-tab');
+    }
+  });
   return (
     <Router>
     {/* navigation bar and links */}
@@ -38,10 +48,10 @@ function Header() {
         <li className="nav-item" id="authenticationTab">
           <Link className="nav-Link" to="/authentication">Login/Register</Link>
         </li>
-        <form className="form-inline search-control  d-flex align-items-center">
-          <input className="form-control" type="search" placeholder="Search" aria-label="Search"></input>
-          <button className="btn" type="submit">Search</button>
-        </form>
+        <li className="nav-item" id="logout-tab" className="d-none" onClick={logout}>
+          <p>Logout</p>
+          <img src={logoutImg} height="20px" width="20px" ></img>
+        </li>
       </ul>
     </nav>
   </header>

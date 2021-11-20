@@ -42,3 +42,23 @@
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
+
+  .hide-section {
+    display: none !important;
+  }
+
+  .logout-tab{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 5px;
+  }
+
+  .logout-tab p {
+    color: var(--primary-label-1);
+  }
+
+  .logout-tab img{
+    padding-left: 10px;
+  }
