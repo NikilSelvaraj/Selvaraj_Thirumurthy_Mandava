@@ -24,19 +24,25 @@ function getAllOrders($data){
 }
 
 function addNewOrder($inputData) {
-    $Customer_ID = $inputData[1] -> Customer_ID;
+    $Customer_ID = ($inputData[1] -> Customer_ID);
+    if(!$Customer_ID) {
+        $Customer_ID = 0;
+    }
     $Email = $inputData[1] -> Email;
     $First_Name = $inputData[1] -> First_Name;
     $Last_Name = $inputData[1] -> Last_Name;
     $instruction = $inputData[1] -> instruction;
     $items = $inputData[1] -> items;
-    $Phonenumber = $inputData[1] -> Phonenumber;
+    $Phonenumber = ($inputData[1] -> Phonenumber);
+    if(!$Phonenumber) {
+        $Phonenumber = 0000000001;
+    }
     $Service = $inputData[1] -> Service;
     $sql = "INSERT INTO Service_Order (Customer_ID, Email, First_Name, Last_Name, instruction, items, Phonenumber, Service)
     VALUES($Customer_ID, '$Email', '$First_Name', '$Last_Name', '$instruction', $items, $Phonenumber, '$Service')";
      $result = mysqli_query($inputData[0], $sql);
      if($result){
-         echo getAllOrders();
+         echo "Order Placed Successfully";
          http_response_code(200);
      } else {
          echo "Failed to add new order. Please contact the Administrator";
@@ -49,7 +55,7 @@ function deleteOrder($inputData) {
     $sql = "DELETE FROM Service_Order WHERE Order_ID = $Order_ID";
     $result = mysqli_query($inputData[0], $sql);
     if($result){
-        echo getAllOrders();
+        echo "Order Removed Successfully";
         http_response_code(200);
     } else {
         echo "Failed to remove the order. Please contact the Administrator";
@@ -70,7 +76,7 @@ function alterRecord($inputData) {
     items = $items, Phonenumber = $Phonenumber, Service = '$Service' WHERE Order_ID = $Order_ID";
     $result = mysqli_query($inputData[0], $sql);
     if($result){
-        echo getAllOrders();
+        echo "Order Updated Successfully";
         http_response_code(200);
     } else {
         echo "Failed to update the order. Please contact the Administrator";
