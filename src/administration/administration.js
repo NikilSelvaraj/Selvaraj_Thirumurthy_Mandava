@@ -1,8 +1,19 @@
+import axios from 'axios';
 var orders, equipment, pickupdelivery, customer, tasks, employees, managers;
 export function populateTables() {
     // fetch orders list
-            orders = require('../assets/staticData/ManageOrder.json');
-            populateOrderList(orders['Manage Orders'])
+    axios({
+        method: 'post',
+        url: process.env.REACT_APP_API_PATH + '/orders.php',
+        headers: {
+            'content-type': 'application/json'
+        },
+        data: {Function: 'getAllOrders'}
+    }).then(result => {
+        orders = result.data;
+        populateOrderList(orders);
+    }).catch(error => {
+    });
 
     // fetch equipments list
             equipment =  require('../assets/staticData/ManageEqupment.json');
@@ -35,17 +46,19 @@ export function populateTables() {
 
 
 // populate order table
-function populateOrderList(orders) {
+export function populateOrderList(orders) {
     var orderTable = document.getElementById('order-table')?.childNodes[0];
     if(orderTable) {
     orders.forEach(element => {
-        orderTable.innerHTML += `<tr id="${`order_` + element.No}">
-                <td>${element.No}</td>
-                <td>${element.OrderNo}</td>
-                <td>${element.CustomerName}</td>
-                <td>${element.Phone}</td>
-                <td>${element.Type}</td>
-                <td><span class="action-icons"><img src="../../assets/images/edit.png" onclick= "editOrder(${`order_` + element.No})" title="edit"> <img src="../../assets/images/delete.png" onclick="deleteRecord(order_${element.No})" title="delete"></span></td>
+        orderTable.innerHTML += `<tr id="${element.Order_ID}">
+                <td>${element.Order_ID}</td>
+                <td>${element.First_Name}</td>
+                <td>${element.Last_Name}</td>
+                <td>${element.Phonenumber}</td>
+                <td>${element.Email}</td>
+                <td>${element.items}</td>
+                <td>${element.Service}</td>
+                <td><span class="action-icons"><img src="../../assets/images/edit.png" onclick="editOrder(${element.Order_ID})" title="edit"> <img src="../../assets/images/delete.png" onclick="deleteRecord(${element.Order_ID})" title="delete"></span></td>
             </tr>`;
     });
 }
@@ -263,11 +276,5 @@ export function addDeliveries() {
 
 // discard added row
 export function discardRow(element) {
-    element.remove();
-}
-
-
-// delete row from given table
-export function deleteRecord(element) {
     element.remove();
 }

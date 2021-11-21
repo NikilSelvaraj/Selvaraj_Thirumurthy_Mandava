@@ -7,8 +7,9 @@ import { addEmployee } from '../administration';
 import { addOrder } from '../administration';
 import { addTasks } from '../administration';
 import { addEquipment } from '../administration';
-import { populateTables } from "../administration";
+import { populateTables, populateOrderList } from "../administration";
 import validateSession from "../../session/session";
+import axios from "axios";
 function Manager () {
     
     useEffect(() => {
@@ -17,6 +18,22 @@ function Manager () {
         document.getElementById('authenticationTab').classList.add('active');
         populateTables();
     },[]);
+    // delete row from given table
+    function deleteRecord(elementId) {
+        axios({
+            method: 'post',
+            url: process.env.REACT_APP_API_PATH + '/orders.php',
+            headers: {
+                'content-type': 'application/json'
+            },
+            data: {Function: 'deleteOrder', data:{Order_ID:elementId}}
+        }).then(result => {
+            let orders = result.data;
+            populateOrderList(orders);
+        }).catch(error => {
+        });
+    }
+
     return (
         <section className='administration-bg hide-section'>
          {/* Header section title */}
@@ -37,11 +54,13 @@ function Manager () {
                         <table id="order-table" className="material-table">
                             <tbody>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Order#</th>
-                                    <th>Customer Name</th>
-                                    <th>Phone</th>
-                                    <th>Type</th>
+                                    <th>Order ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Items</th>
+                                    <th>Service Type</th>
                                     <th className="text-align-center"><img className="cursor-pointer" title="Add Record"
                                             onClick={() => addOrder()} src={add} height="13px"
                                             width="13px" alt='add records'/></th>
