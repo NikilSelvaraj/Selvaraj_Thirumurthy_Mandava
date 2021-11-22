@@ -349,6 +349,12 @@ body {
     cursor: pointer;
   }
 
+  .edit-icon img:first-child{
+    content:url(../assets/images/edit.png) !important;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+  }
   .action-icons img:first-child {
     content:url(../assets/images/edit.png);
   }

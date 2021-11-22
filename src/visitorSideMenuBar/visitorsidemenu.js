@@ -3,6 +3,7 @@ import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
 import Chat from '../chat/chat';
 import RegisterIncident from '../registerIncident/registerIncident';
 import ScheduleDrop from '../scheduleDrop/scheduleDrop';
+import ScheduleHistory from '../scheduleHistory/scheduleHistory';
 import './visitorsidemenu.css'
 function Visitorsidemenu() {
     const userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
@@ -21,6 +22,9 @@ function Visitorsidemenu() {
                         <li className="sideNavItem" id="register" >
                             <Link className="sideNav-link" name="registerIncident" to="/Register">Register an Incident</Link>
                         </li>
+                        <li className="sideNavItem" id="schedulehistory">
+                            <Link className="sideNav-link" name="history" to="/scheduleHistory">Schedule History</Link>
+                        </li>
                         <li className="sideNavItem" id="chat">
                             <Link className="sideNav-link" name="chats" to="/Chat">Chat</Link>
                         </li>
@@ -30,6 +34,7 @@ function Visitorsidemenu() {
             <Switch>
                 <Route exact path='/visitor'><ScheduleDrop/></Route>
                 <Route exact path='/Register'><RegisterIncident/></Route>
+                <Route exact path='/scheduleHistory'><ScheduleHistory/></Route>
                 <Route exact path='/Chat'><Chat/></Route>
             </Switch>
             </section>

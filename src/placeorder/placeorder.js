@@ -4,6 +4,7 @@ import './placeorder.css'
 class PlaceOrder extends Component{
     constructor (props) {
         super(props)
+        this.userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
         this.state = {
             FirstName:'',
             LastName:'',
@@ -12,13 +13,12 @@ class PlaceOrder extends Component{
             service:'',
             Items:'',
             Instruction:'',
-            customerID:''
+            customerID:this.userInfo.ID
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClear = this.handleClear.bind(this)
     }
-    userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
     handleChange(event){
         const target = event.target;
         const value = target.value;
@@ -40,12 +40,8 @@ class PlaceOrder extends Component{
         })
     }
     handleSubmit(event){
-        console.log("State Data"+JSON.stringify(this.state))
-        console.log('id='+this.userInfo.ID)
         event.preventDefault();
-        this.setState({
-            customerID:this.userInfo.ID
-        })
+        console.log("State Data"+JSON.stringify(this.state))
         axios({
             method:'post',
             url:process.env.REACT_APP_API_PATH + '/placeOrder.php',
@@ -57,8 +53,9 @@ class PlaceOrder extends Component{
             console.log("Data posted "+result.data);
             var x = document.getElementById("snackbar-order");
             x.className = "show";
+            x.innerText ="Order Placed"
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-            // this.handleClear();
+            this.handleClear();
         }).catch(error => {
             console.log(error.message)
             var x = document.getElementById("snackbar-order");
@@ -78,16 +75,18 @@ class PlaceOrder extends Component{
                         <form className="d-flex flex-direction-column w-100 align-items-center place-order-form" onSubmit={this.handleSubmit}>
                             <div className="d-flex flex-direction-column order-Container">
                                 <div className="d-flex flex-direction-row justify-center media">
-                                    <input type="text" id="fname" name="FirstName" className="font-roboto" placeholder="First Name" value={this.state.FirstName} onChange={this.handleChange} required/>
-                                    <input type="text" id="lane"  name="LastName" className="font-roboto" placeholder="Last Name" value={this.state.LastName} onChange={this.handleChange} required/>
+                                    <input type="text" id="fname" name="FirstName" className="font-roboto" placeholder="First Name" maxLength='25' value={this.state.FirstName} onChange={this.handleChange} required/>
+                                    <input type="text" id="lane"  name="LastName" className="font-roboto" placeholder="Last Name" maxLength='25' value={this.state.LastName} onChange={this.handleChange} required/>
                                 </div>
                                 <div className="d-flex flex-direction-row justify-center media">
-                                    <input type="text" id="email" className="font-roboto"  name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required/>
+                                    <input type="text" id="email" className="font-roboto"  name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} 
+                                    pattern="[^ @]*@[^ @]*" onInvalid={(event) => event.target.setCustomValidity('Please provide a valid email address Ex:aaa@google.com')} 
+                                    onInput={(event) => event.target.setCustomValidity('')} required/>
                                      <input type="number" id="phoneNumber" className="font-roboto"  name="phoneNumber" placeholder="Phone Number" value={this.state.phoneNumber} onChange={this.handleChange} required/>
                                 </div>
                                 <div className="d-flex flex-direction-row justify-center media">
                                     <select name="service" id="service" className="font-roboto" value={this.state.service} onChange={this.handleChange} required>
-                                        <option  value="DEFAULT">Select Required Service</option>
+                                        <option value="DEFAULT">Select Required Service</option>
                                         <option value="Washing" >Washing</option>
                                         <option value="Drying">Drying</option>
                                         <option value="Ironing">Ironing</option>
@@ -107,7 +106,6 @@ class PlaceOrder extends Component{
                     </div>
                 </div>
                 <div id="snackbar-order">
-                    Order Placed
                 </div>
             </div>
         )

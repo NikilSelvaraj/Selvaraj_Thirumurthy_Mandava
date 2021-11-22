@@ -48,6 +48,7 @@ class RegisterIncident extends Component {
       console.log("Data posted " + result.data);
       var x = document.getElementById("snackbar-register");
       x.className = "show";
+      x.innerText ="Registration Sucessfull"
       setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
       this.handleClear();
     }).catch(err => {
@@ -70,12 +71,16 @@ class RegisterIncident extends Component {
             <form className="d-flex flex-direction-column w-100 align-items-center register-incident-form" onSubmit={this.handleSubmit} encType="text/plain">
               <div className="d-flex flex-direction-column register-container">
                 <div className="d-flex flex-direction-row justify-center media">
-                  <input type="text" id="fname" name="fname" placeholder="First Name" value={this.state.fname} onChange={this.handleChange} required />
-                  <input type="text" id="lname" name="lname" placeholder="Last Name" value={this.state.lname} onChange={this.handleChange} required />
+                  <input type="text" id="fname" name="fname" placeholder="First Name" maxLength='25' value={this.state.fname} onChange={this.handleChange} required />
+                  <input type="text" id="lname" name="lname" placeholder="Last Name" maxLength='25' value={this.state.lname} onChange={this.handleChange} required />
                 </div>
                 <div className="d-flex flexdirection-row justify-center media">
-                  <input type="text" id="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
-                  <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" value={this.state.phoneNumber} onChange={this.handleChange} required />
+                  <input type="text" id="email" name="email" placeholder="Email" 
+                  value={this.state.email} onChange={this.handleChange} 
+                  pattern="[^ @]*@[^ @]*" onInvalid={(event) => event.target.setCustomValidity('Please provide a valid email address Ex:aaa@google.com')} 
+                  onInput={(event) => event.target.setCustomValidity('')}
+                  required />
+                  <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" minLength='10' maxLength='12' value={this.state.phoneNumber} onChange={this.handleChange} required />
                 </div>
                 <div className="d-flex flexdirection-row justify-center media">
                   <select name="register" id="register" className="font-roboto registerSelect" value={this.state.register} onChange={this.handleChange} required>
@@ -96,7 +101,6 @@ class RegisterIncident extends Component {
           </div>
         </div>
         <div id="snackbar-register">
-          Registration Sucessfull
         </div>
       </div>
     )

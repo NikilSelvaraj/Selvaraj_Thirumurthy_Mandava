@@ -4,6 +4,7 @@ import './scheduleDrop.css'
 class ScheduleDrop extends Component {
     constructor(){
         super()
+        this.userInfo = JSON.parse(localStorage.getItem('userInfo') || "{}");
         this.state = {
             fname:'',
             lname:'',
@@ -11,18 +12,37 @@ class ScheduleDrop extends Component {
             phoneNumber:'',
             service:'',
             date:'',
-            time:''
+            time:'',
+            customer_ID:this.userInfo.ID
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleClear = this.handleClear.bind(this)
     }
+    validateForm () {
+        let contactFname = document.forms["contactForm"]["fname"].value;
+        let contactLname = document.forms["contactForm"]["lname"].value
+        let contactPno = document.forms["contactForm"]["PhoneNumber"].value
+        if (contactFname.length>25){
+        alert("First Name cannot be more than 25 characters");
+        document.contactForm.fname.focus();
+        return false;
+        }
+        if (contactLname.length>25){
+            alert("Last Name cannot be more than 25 characters");
+            document.contactForm.lname.focus();
+            return false
+        }
+        if (contactPno.length > 10){
+            alert("Phone number should be less than 10 digits ");
+            document.contactForm.PhoneNumber.focus();
+            return false
+        }
+    }
     handleSubmit(event){
         console.log("State Data"+JSON.stringify(this.state))
         event.preventDefault();
-        // this.setState({
-        //   customerID:localStorage.getItem("userInfo").ID
-        // })
+        this.validateForm()
         axios({
             method:'post',
             url:process.env.REACT_APP_API_PATH + '/scheduleDrop.php',
@@ -34,16 +54,20 @@ class ScheduleDrop extends Component {
             console.log("Data posted "+result.data);
             var x = document.getElementById("snackbar-schedule");
             x.className = "show";
+            x.innerText = 'Drop registered sucessfully'
             setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
             this.handleClear();
         }).catch(error => {
            console.log(error.message)
-           var x = document.getElementById("snackbar-schedule");
-           x.className = "show danger";
-           x.innerText = 'Drop not registered sucessfully';
-           setTimeout(function(){
-                x.className = x.className.replace("show", "");
-       }, 5000);
+           if(error){
+            var x = document.getElementById("snackbar-schedule");
+            x.className = "show danger";
+            x.innerText = 'Drop not registered sucessfully';
+            setTimeout(function(){
+                 x.className = x.className.replace("show", "");
+        }, 5000);
+        }
+
     }) 
     }
     handleChange(event){
@@ -78,7 +102,11 @@ class ScheduleDrop extends Component {
                                     <input type="text" id="lname" name="lname" placeholder="Last Name" value={this.state.lname} onChange={this.handleChange}  required />
                                 </div>
                                 <div className="d-flex flexdirection-row justify-center media">
-                                    <input type="text" id="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleChange} required />
+                                    <input type="text" id="email" name="email" placeholder="Email" 
+                                    value={this.state.email} onChange={this.handleChange} 
+                                    pattern="[^ @]*@[^ @]*" onInvalid={(event) => event.target.setCustomValidity('Please provide a valid email address Ex:aaa@google.com')} 
+                                    onInput={(event) => event.target.setCustomValidity('')}
+                                    required />
                                     <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" value={this.state.phoneNumber} onChange={this.handleChange} required />
                                 </div>
                                 <div className="d-flex flexdirection-row justify-center schedule-dropoff media">
@@ -107,7 +135,6 @@ class ScheduleDrop extends Component {
                     </div>
                 </div>
                 <div id="snackbar-schedule">
-                    Drop has been succefully scheduled
                 </div>
             </div>
         )

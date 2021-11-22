@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom';
 import Chat from '../chat/chat';
+import OrdersHistory from '../orderHistory/ordersHistory';
 
 import PlaceOrder from '../placeorder/placeorder';
 import RegisterIncident from '../registerIncident/registerIncident';
@@ -26,6 +27,9 @@ function SideMenuBar () {
                         <li className="sideNavItem" id="register" >
                             <Link className="sideNav-link" name="registerIncident" to="/Register">Register an Incident</Link>
                         </li>
+                        <li className="sideNavItem" id="history">
+                            <Link className="sideNav-link" name="history" to="/History">Order History</Link>
+                        </li>
                         <li className="sideNavItem" id="chat">
                             <Link className="sideNav-link" name="chats" to="/Chat">Chat</Link>
                         </li>
@@ -36,6 +40,7 @@ function SideMenuBar () {
                 <Route exact path='/user'><PlaceOrder/></Route>
                 <Route exact path='/Subscribe'><SubscribeService/></Route>
                 <Route exact path='/Register'><RegisterIncident/></Route>
+                <Route exact path='/History'><OrdersHistory/></Route>
                 <Route exact path='/Chat'><Chat/></Route>
             </Switch>
             </section>
