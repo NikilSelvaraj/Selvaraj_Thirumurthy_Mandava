@@ -3,6 +3,27 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
+<!-- Authentication for instawash
+
+Site  can be accessed from : nxs4184.uta.cloud
+Manger Profile
+email:manager@instawash.com
+password:managerpwd
+
+User Profile
+email:sujitrajt@gmail.com
+password:Qwerty12345%
+
+Visitor Profile
+email:sujitrajt@yahoo.com
+password:Qwerty12345%
+
+Admin Profile
+email:admin@instawash.com
+password:adminpwd 
+
+-->
+
 
 ### `npm i`
 will install necessary nodemodules required for this project 
