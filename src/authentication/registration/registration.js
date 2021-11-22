@@ -14,7 +14,18 @@ function Registration() {
 
     function onSubmit(event) {
         event.preventDefault();
-        if(registrationInfo.password !== registrationInfo.confirmPassword) {
+        var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[-!@#$%^&*()?~]).{8,20}$/
+        debugger;
+        if(!re.test(registrationInfo.password)) {
+            var x = document.getElementById("snackbar");
+            x.className = "show danger";
+            x.innerText = 'Password must contain atleast 8 charactes including special character, number and an uppercase';
+            setTimeout(function(){
+                 x.className = x.className.replace("show", "");
+        }, 8000);
+        return;
+        }
+        else if(registrationInfo.password !== registrationInfo.confirmPassword) {
             var x = document.getElementById("snackbar");
                 x.className = "show danger";
                 x.innerText = 'Password does not match';
@@ -74,6 +85,8 @@ function Registration() {
                                             required value={registrationInfo['lastName']} onChange={handleChange} />
                                     </div>
                                     <input type="email" id="email" name="email" placeholder="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                    onChange={handleChange} onInvalid={(event) => event.target.setCustomValidity('Please provide a valid email address')}
+                                    onInput={(event) => event.target.setCustomValidity('')}
                                         value={registrationInfo['email']} onChange={handleChange} />
                                      <div className="d-flex flex-direction-row justify-center align-items-center">   
                                         <select name="userType" id="userType" className="user-select" value={registrationInfo['userType']} required onChange={handleChange}>
@@ -83,7 +96,8 @@ function Registration() {
                                         <label for="userType" className="user-label">Select User Type</label>
                                     </div>
                                     <input type="password" id="password" name="password" placeholder="Password" required minLength='8'
-                                        value={registrationInfo['password']} onChange={handleChange} />
+                                        value={registrationInfo['password']} onChange={handleChange} onInvalid={(event) => event.target.setCustomValidity('Password must be min 8 characters long with a uppercase, Number and a special character')}
+                                        onInput={(event) => event.target.setCustomValidity('')}/>
                                     <input type="password" id="confirm_password" name="confirmPassword" placeholder="Confirm Password" required minLength='8'
                                         value={registrationInfo['confirmPassword']} onChange={handleChange} />
                                 </div>

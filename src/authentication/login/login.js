@@ -69,6 +69,8 @@ function Login() {
                                 <div className="d-flex flex-direction-column">
                                     <input type="email" id="email" name="email" placeholder="Email"
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" size="30" required 
+                                        onInvalid={(event) => event.target.setCustomValidity('Please provide a valid email address')}
+                                        onInput={(event) => event.target.setCustomValidity('')}
                                         value={credentials['email']} onChange={handleChange}/>
                                     <input type="password" id="password" name="password" placeholder="Password"
                                         minLength="8" required value={credentials['password']} onChange={handleChange}/>

@@ -17,6 +17,10 @@ if(isset($postdata) && !empty($postdata)){
     $firstName = $request->firstName;
     $lastName = $request->lastName;
     $email = $request->email;
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        http_response_code(401);
+        return;
+    }
     $password = $request->password;
     $password_hash = password_hash($password,
     PASSWORD_DEFAULT, array('cost' => 9));
@@ -53,7 +57,7 @@ if(isset($postdata) && !empty($postdata)){
         http_response_code(201);
     }
     else{
-         http_response_code(422); 
+         http_response_code(409); 
     }
          
 }

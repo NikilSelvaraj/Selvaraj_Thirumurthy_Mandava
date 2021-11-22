@@ -8,6 +8,10 @@ $postdata = file_get_contents("php://input");
 if(isset($postdata) && !empty($postdata)){
     $request = json_decode($postdata);
     $email = $request->email;
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+        http_response_code(401);
+        return;
+    }
     $password = $request->password;
     $sql_Customer = "SELECT First_Name, Last_Name, User_Type, ID, Email,Password FROM Customer
     WHERE Email = '$email'";
@@ -30,11 +34,11 @@ if(isset($postdata) && !empty($postdata)){
                 $row = $r;
             }
         }
-        if($row && password_verify($password,$row['Password'])){
+        if($row && password_verify(`$password`,$row['Password'])){
             $row['Password'] = '';
             echo json_encode($row);
         } else {
-        http_response_code(422); }
+        http_response_code(409); }
     }
          
 }

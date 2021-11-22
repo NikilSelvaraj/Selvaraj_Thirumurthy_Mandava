@@ -1,47 +1,32 @@
 import axios from 'axios';
 var orders, equipment, pickupdelivery, customer, tasks, employees, managers;
 export function populateTables() {
-    // fetch orders list
-    axios({
-        method: 'post',
-        url: process.env.REACT_APP_API_PATH + '/orders.php',
-        headers: {
-            'content-type': 'application/json'
-        },
-        data: {Function: 'getAllOrders'}
-    }).then(result => {
-        orders = result.data;
-        populateOrderList(orders);
-    }).catch(error => {
-    });
 
-    // fetch equipments list
-            equipment =  require('../assets/staticData/ManageEqupment.json');
-            populateEquipmentList(equipment['ManageEquipment'])
+    // // fetch equipments list
+    //         equipment =  require('../assets/staticData/ManageEqupment.json');
+    //         populateEquipmentList(equipment['ManageEquipment'])
 
 
-    // fetch pickup/delivery list
-            pickupdelivery = require('../assets/staticData/ManageService.json');
-            populatePickupDeliveryList(pickupdelivery['ManageService']);
+    // // fetch pickup/delivery list
+    //         pickupdelivery = require('../assets/staticData/ManageService.json');
+    //         populatePickupDeliveryList(pickupdelivery['ManageService']);
 
 
-    // fetch customer list
-            customer = require('../assets/staticData/ManageCustomers.json')
-            populateCustomerList(customer['ManageCustomer']);
+    // // fetch customer list
+    //         customer = require('../assets/staticData/ManageCustomers.json')
+    //         populateCustomerList(customer['ManageCustomer']);
 
 
     // fetch tasks list
             tasks = require('../assets/staticData/ManageTask.json')
             populateTaskList(tasks['ManageTask'])
+    // // fetch employees list
+    //         employees = require('../assets/staticData/ManageEmployee.json');
+    //         populateEmployeeList(employees['ManageEmployee'])
 
-
-    // fetch employees list
-            employees = require('../assets/staticData/ManageEmployee.json');
-            populateEmployeeList(employees['ManageEmployee'])
-
-    // fetch managers list
-            managers = require('../assets/staticData/ManageManagers.json');
-            populateManagerList(managers['ManageManagers'])
+    // // fetch managers list
+    //         managers = require('../assets/staticData/ManageManagers.json');
+    //         populateManagerList(managers['ManageManagers'])
 }
 
 
