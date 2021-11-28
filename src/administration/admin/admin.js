@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import '../administration.css';
-import customerGraph from '../../assets/images/customer-graph-1.png';
-import businessGraph from '../../assets/images/business-graph.svg';
-import stackedArea from '../../assets/images/700px-7.1_stacked_area_chart.png';
+import _ from 'underscore';
 import add from '../../assets/images/plus.png';
 import { populateTables } from '../administration';
 import validateSession from "../../session/session";
@@ -11,18 +9,30 @@ import deleteIcon from '../../assets/images/delete.png';
 import confirmIcon from '../../assets/images/tick.png';
 import discardIcon from '../../assets/images/close.png';
 import edit from '../../assets/images/edit.png';
+import {Line, Bar} from 'react-chartjs-2';
+import { Chart as ChartJS } from 'chart.js/auto'
+import { Chart }            from 'react-chartjs-2'
 function Admin () {
+    const [noOfCustomer, setNoOfCustomers] = useState(0);
+    const [noOfEquipments, setNoOfEquipments] = useState(0);
+    const [noOfAcCustomer, setNoOfAcCustomers] = useState(0);
     const [orders, setOrders] = useState([]);
     const [equipments, setEquipments] = useState([]);
     const [customers, setCustomers] = useState([]);
     const [manager, setManager] = useState([]);
     const [pickup, setPickup] = useState([]);
+    const [chart1,SetChart1] = useState({labels:[], datasets:[]});
+    const [chart2,SetChart2] = useState({labels:[], datasets:[]});
+    const [chart3,SetChart3] = useState({labels:[], datasets:[]});
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
     var slideIndex = 1;
     useEffect(() => {
         validateSession('Admin');
         document.getElementsByClassName('nav-item active')[0].classList.remove('active');
         document.getElementById('authenticationTab').classList.add('active');
-        showSlides(slideIndex);
+        populateCharts();
         updateOrderTable()
         updateEquipmentsTable();
         updateCustomerTable();
@@ -30,6 +40,87 @@ function Admin () {
         updatePickupTable();
         populateTables();
     },[]);
+
+    function populateCharts() {
+        axios({
+            method: 'post',
+            url: process.env.REACT_APP_API_PATH + '/orders.php',
+            headers: {
+                'content-type': 'application/json'
+            },
+            data: { Function: 'getAllOrders' }
+        }).then(result => {
+            SetChart1({
+                labels: _.keys(_.countBy(result.data, function(data) { return data.Service; })),
+                datasets:[{
+                    label: 'Frequent Order Types',
+                    data:_.values(_.countBy(result.data, function(data) { return data.Service; })),
+                    backgroundColor: ['#87ceeb', '#42A5F5', '#1976D2', '#00529e'],
+                    borderWidth:2
+                }]
+            });
+            showSlides(slideIndex);
+            console.log(chart1);
+        }).catch(error => {
+        });
+
+        axios({
+            method: 'post',
+            url: process.env.REACT_APP_API_PATH + '/schedule.php',
+            headers: {
+                'content-type': 'application/json'
+            },
+            data: { Function: 'getAllschedule' }
+        }).then(result => {
+            SetChart2({
+                labels: _.keys(_.countBy(result.data, function(data) { return data.date; })),
+                datasets:[{
+                    label: 'Frequency of Orders by date',
+                    data:_.values(_.countBy(result.data, function(data) { return data.date; })),
+                    backgroundColor: ['#d9d8d8'],
+                    fill: true,
+                    borderWidth:2,
+                    borderColor: "#616161"
+                }]
+            });
+        }).catch(error => {
+        });
+
+        axios({
+            method: 'post',
+            url: process.env.REACT_APP_API_PATH + '/customers.php',
+            headers: {
+                'content-type': 'application/json'
+            },
+            data: { Function: 'getAllCustomers' }
+        }).then(result => {
+            let customer = result.data.filter(d => {if(d.User_Type === 'User') return true; else return false});
+            let vistor = result.data.filter(d => {if(d.User_Type === 'Visitor') return true; else return false});
+            setNoOfAcCustomers(customer.length);
+            SetChart3({
+                labels: monthNames,
+                datasets:[{
+                    label: 'Frequency of New Customers',
+                    data:_.values(_.countBy(customer, function(data) { return monthNames[new Date(data.Created_Date).getMonth()]; })),
+                    backgroundColor: ['#74ebc2ba'],
+                    fill: true,
+                    borderWidth:2,
+                    borderColor: "#07562a"
+                },
+                {
+                    label: 'Frequency of New Visitors',
+                    data:_.values(_.countBy(vistor, function(data) { return monthNames[new Date(data.Created_Date).getMonth()]; })),
+                    backgroundColor: ['#03a9f4bf'],
+                    fill: true,
+                    borderWidth:2,
+                    borderColor: "#0c529ecc"
+                }]
+            });
+            console.log(chart3);
+        }).catch(error => {
+        });
+    }
+
     function updateEquipmentsTable() {
         axios({
             method: 'post',
@@ -40,6 +131,7 @@ function Admin () {
             data: { Function: 'getAllEquipments' }
         }).then(result => {
             setEquipments(result.data);
+            setNoOfEquipments(result.data.length);
         }).catch(error => {
         });
     }
@@ -218,6 +310,7 @@ function Admin () {
             data: { Function: 'getAllCustomers' }
         }).then(result => {
             setCustomers(result.data);
+            setNoOfCustomers(result.data.length)
         }).catch(error => {
         });
     }
@@ -327,32 +420,44 @@ function Admin () {
             <div className="d-flex w-100 number-container">
                 <div className="number-card font-oswald">
                     <span>Total No of users:</span>
-                    <span className="font-roboto">598</span>
+                    <span className="font-roboto">{noOfCustomer}</span>
                 </div>
                 <div className="number-card font-oswald">
                     <span>Active users:</span>
-                    <span className="font-roboto">422</span>
+                    <span className="font-roboto">{noOfAcCustomer}</span>
                 </div>
                 <div className="number-card font-oswald">
                     <span>Total No of employees:</span>
-                    <span className="font-roboto">13</span>
+                    <span className="font-roboto">18</span>
                 </div>
                 <div className="number-card font-oswald">
                     <span>No of Equipments available:</span>
-                    <span className="font-roboto">45</span>
+                    <span className="font-roboto">{noOfEquipments}</span>
                 </div>
             </div>
             <div className="carousel-container admin-container d-flex flex-direction-column align-items-center">
-                <div className="slides fade w-100">
-                    <img src={customerGraph} alt='add-record'/>
+                <div className="slides fade w-100" style={{height:"450px", width:"900px"}}>
+                    <Bar data={chart1} options={{
+                        responsive:true,
+                        title:{text:'Order scale', display:true}
+                        }
+                    }/>
                 </div>
 
-                <div className="slides fade w-100">
-                    <img src={businessGraph} alt='add-record'/>
+                <div className="slides fade w-100" style={{height:"450px", width:"900px"}}>
+                <Line data={chart2} options={{
+                        responsive:true,
+                        title:{text:'Order scale', display:true}
+                        }
+                    }/>
                 </div>
 
-                <div className="slides fade w-100">
-                    <img src={stackedArea} alt='add-record'/>
+                <div className="slides fade w-100" style={{height:"450px", width:"900px"}}>
+                <Line data={chart3} options={{
+                        responsive:true,
+                        title:{text:'customer scale', display:true}
+                        }
+                    }/>
                 </div>
 
                 {/* The pills  */}

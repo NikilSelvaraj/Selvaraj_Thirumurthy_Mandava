@@ -191,8 +191,7 @@ body {
   /* Admin page graph and stats section styles */
   
   .graph-view {
-    height: 600px;
-    max-height: 600px;
+    height: 800px;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -204,7 +203,7 @@ body {
     box-shadow: 0px 0px 3px 0px var(--primary-bg-3);
   }
   
-  .graph-view img {
+  .graph-view img{
     height: 300px;
     width: 90%;
   }
