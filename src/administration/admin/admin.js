@@ -32,7 +32,6 @@ function Admin () {
         validateSession('Admin');
         document.getElementsByClassName('nav-item active')[0].classList.remove('active');
         document.getElementById('authenticationTab').classList.add('active');
-        populateCharts();
         updateOrderTable()
         updateEquipmentsTable();
         updateCustomerTable();
@@ -41,6 +40,9 @@ function Admin () {
         populateTables();
     },[]);
 
+    useEffect(() => {
+        populateCharts();
+    },[customers,equipments,orders]);
     function populateCharts() {
         axios({
             method: 'post',
